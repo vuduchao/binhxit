@@ -116,12 +116,15 @@
       color: #ee4d2d;
       font-size: 34px;
       font-weight: 800;
-    }.price{
-  font-size:34px;
-}
-.discount{
-  font-size:13px;
-}
+    }
+
+    .price {
+      font-size: 34px;
+    }
+
+    .discount {
+      font-size: 13px;
+    }
 
     .old-price {
       color: #999;
@@ -211,7 +214,7 @@
       overflow: hidden;
 
       transition: .2s;
-      
+
     }
 
     /* shine effect */
@@ -245,17 +248,19 @@
     /* hiệu ứng bấm */
     .btn-buy:active {
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transform: scale(0.95);
+      transform: scale(0.95);
 
     }
-    .buy-trust{
-  font-size:13px;
-  color:#666;
-  text-align:center;
-  margin-top:12px;
-  line-height:1.6;
-}
-/* 
+
+    .buy-trust {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* 
     .btn-buy span {
       display: inline-block;
       animation: shakeIcon 1.5s infinite;
@@ -368,7 +373,7 @@
       padding: 14px;
       border-radius: 12px;
       font-weight: 800;
-        animation: pulse infinite;
+      animation: pulse infinite;
 
     }
 
@@ -584,8 +589,8 @@
       font-size: 16px;
       font-weight: 800;
       margin-bottom: 12px;
-       position:sticky;
-      top:0;
+      position: sticky;
+      top: 0;
     }
 
     .contact-box {
@@ -683,7 +688,7 @@
 
     .modal.show {
       display: flex;
-       backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
     }
 
     .modal-content {
@@ -931,8 +936,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
-        position: relative;
-  z-index: 5;
+      position: relative;
+      z-index: 5;
 
     }
 
@@ -1077,27 +1082,48 @@
       border: 1px solid #ddd;
       color: #333;
     }
-    .urgency-box{
-  font-size:13px;
-  color:#ee4d2d;
-  text-align:center;
-  margin:10px 0;
-  font-weight:600;
+
+    .urgency-box {
+      font-size: 13px;
+      color: #ee4d2d;
+      text-align: center;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    .secure-note {
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .option-title {
+      background: #fff7f5;
+      border: 1px solid #ffd7cd;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    .bottom-bar.hide {
+      display: none;
+    }
+    .product-desc .desc-text{
+  font-size:14px;
+  line-height:1.7;
+  color:#444;
+  margin-bottom:12px;
 }
-.secure-note{
-  font-size:13px;
-  color:#888;
-  text-align:center;
-  margin-top:8px;
+
+.desc-img{
+  width:100%;
+  border-radius:12px;
+  margin:12px 0;
+  display:block;
 }
-.option-title{
-  background:#fff7f5;
-  border:1px solid #ffd7cd;
-  padding:10px 12px;
-  border-radius:10px;
-}
-.bottom-bar.hide {
-  display: none;
+
+.product-desc .section-title{
+  margin-top:10px;
 }
   </style>
 </head>
@@ -1163,67 +1189,82 @@
         <button class="qty-btn" id="plus">+</button>
       </div>
 
-     <div class="buy-trust">
-  ✔ Kiểm tra hàng trước khi thanh toán  
-  ✔ Đổi trả 7 ngày nếu lỗi  
-  🚚 Nhận hàng rồi mới thanh toán (COD)
-</div>
+      <div class="buy-trust">
+        ✔ Kiểm tra hàng trước khi thanh toán
+        ✔ Đổi trả 7 ngày nếu lỗi
+        🚚 Nhận hàng rồi mới thanh toán (COD)
+      </div>
 
 
     </section>
     <!-- REVIEW -->
-     <div class="section">
+    <div class="section">
+      <div class="section product-desc">
 
-  <div class="section-title">🌿 MÔ TẢ SẢN PHẨM</div>
+        <div class="section-title">🌿 MÔ TẢ SẢN PHẨM</div>
 
-  <div style="font-size:14px; line-height:1.7; color:#444; margin-bottom:12px;">
-    Bình xịt tưới cây dung tích <b>5L</b> thiết kế <b>đeo vai thoải mái</b>, 
-    giúp bạn dễ dàng chăm sóc vườn cây mà không tốn nhiều công sức. 
-    Vòi phun linh hoạt, áp lực mạnh mẽ giúp <b>phân tán nước đều</b>, 
-    phù hợp để tưới cây, phun thuốc trừ sâu hoặc làm sạch sân vườn.
-  </div>
+        <p class="desc-text">
+          Bình xịt tưới cây dung tích <b>5L</b> thiết kế <b>đeo vai thoải mái</b>,
+          giúp bạn chăm sóc vườn cây dễ dàng mà không tốn nhiều công sức.
+          Vòi phun linh hoạt, áp lực mạnh giúp <b>phân tán nước đều</b>,
+          phù hợp tưới cây, phun thuốc hoặc làm sạch sân vườn.
+        </p>
 
-  <div class="section-title">🔥 ĐẶC ĐIỂM NỔI BẬT</div>
+        <div class="section-title">🔥 ĐẶC ĐIỂM NỔI BẬT</div>
 
-  <ul class="desc-list">
-    <li>⚡ <b>1 chạm tự động</b> – nhấn nút là chạy, không cần giữ tay</li>
-    <li>🔄 <b>Vòi phun xoay 360°</b> – tia mạnh hoặc phun sương linh hoạt</li>
-    <li>📏 <b>Cần phun dài 60cm</b> – dễ tiếp cận vị trí xa</li>
-    <li>✋ <b>Tay cầm chống trượt</b> – cầm chắc, không mỏi</li>
-    <li>🔋 <b>Pin 2500mAh</b> – dùng liên tục 2–3 giờ</li>
-    <li>🎒 <b>Kèm dây đeo vai</b> – tiện lợi khi di chuyển</li>
-  </ul>
+        <ul class="desc-list">
+          <li>⚡ <b>1 chạm tự động</b> – không cần giữ tay</li>
+          <li>🔄 <b>Xoay 360°</b> – tia mạnh / phun sương</li>
+          <li>📏 <b>Cần dài 60cm</b> – dễ tiếp cận xa</li>
+          <li>✋ <b>Chống trượt</b> – cầm chắc, không mỏi</li>
+          <li>🔋 <b>Pin 2500mAh</b> – dùng 2–3 giờ</li>
+          <li>🎒 <b>Có dây đeo</b> – tiện di chuyển</li>
+        </ul>
 
-  <div class="section-title">📦 THÔNG TIN SẢN PHẨM</div>
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/d9pnnobr_faktlp.png">
 
-  <ul class="desc-list">
-    <li>Dung tích: 5L</li>
-    <li>Pin: 2500mAh</li>
-    <li>Thời gian sử dụng: 2–3 giờ</li>
-    <li>Cần phun: 60cm</li>
-    <li>Chế độ: tia mạnh / phun sương</li>
-  </ul>
+        <div class="section-title">📦 THÔNG TIN SẢN PHẨM</div>
 
-  <div class="section-title">🛠 HƯỚNG DẪN SỬ DỤNG</div>
+        <ul class="desc-list">
+          <li>Dung tích: 5L</li>
+          <li>Pin: 2500mAh</li>
+          <li>Thời gian: 2–3 giờ</li>
+          <li>Cần phun: 60cm</li>
+          <li>Chế độ: tia mạnh / sương</li>
+        </ul>
 
-  <ul class="desc-list">
-    <li>1. Đổ nước hoặc dung dịch vào bình</li>
-    <li>2. Đậy kín và bật công tắc</li>
-    <li>3. Điều chỉnh tia phun theo nhu cầu</li>
-    <li>4. Sử dụng liên tục không cần bóp tay</li>
-  </ul>
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/DQ54Hd47HsRQv7E92ZTprSkemQvaUIaBBttbskUA_ibgh3c.png">
 
-  <div class="urgency-box">
-    ⚡ Chỉ còn 37 sản phẩm • 🔥 12 người vừa đặt trong 10 phút qua
-  </div>
+        <div class="section-title">🛠 HƯỚNG DẪN SỬ DỤNG</div>
 
-  <div class="buy-trust">
-    ✔ Kiểm tra hàng trước khi thanh toán  
-    ✔ Đổi trả 7 ngày nếu lỗi  
-    🚚 Nhận hàng rồi mới thanh toán (COD)
-  </div>
+        <ul class="desc-list">
+          <li>1. Đổ nước vào bình</li>
+          <li>2. Bật công tắc</li>
+          <li>3. Chọn chế độ phun</li>
+          <li>4. Sử dụng không cần bóp tay</li>
+        </ul>
 
-</div>
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/arnwixhn_ymws3k.png">
+
+        <div class="urgency-box">
+          ⚡ Chỉ còn 37 sản phẩm • 🔥 12 người vừa đặt trong 10 phút qua
+        </div>
+
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png">
+
+        <div class="buy-trust">
+          ✔ Kiểm tra hàng trước khi thanh toán
+          ✔ Đổi trả 7 ngày nếu lỗi
+          🚚 Nhận hàng rồi mới thanh toán (COD)
+        </div>
+
+      </div>
+
+    </div>
     <section class="section">
 
       <div class="section-title">🌼 Đặc điểm nổi bật</div>
@@ -1439,9 +1480,9 @@
               <span id="grandTotal">0đ</span>
             </div>
             <div class="urgency-box">
-  ⚡ Chỉ còn 37 sản phẩm trong kho  
-  🔥 12 người vừa đặt trong 10 phút qua
-</div>
+              ⚡ Chỉ còn 37 sản phẩm trong kho
+              🔥 12 người vừa đặt trong 10 phút qua
+            </div>
           </div>
         </div>
         <form id="orderForm">
@@ -1466,9 +1507,9 @@
           <button type="button" id="submitOrder" class="submit-btn">
             XÁC NHẬN ĐẶT HÀNG
           </button>
-<div class="secure-note">
-  🔒 Thông tin được bảo mật 100%
-</div>
+          <div class="secure-note">
+            🔒 Thông tin được bảo mật 100%
+          </div>
         </form>
       </div>
 
@@ -1480,288 +1521,288 @@
   <div class="bottom-bar">
     <button class="btn-main" id="buyNow">🔥 ĐẶT MUA NGAY - NHẬN HÀNG TRONG 2-3 NGÀY</button>
   </div>
-<script>
-/* ================= STATE ================= */
-const state = {
-  quantity: 1,
-  modalQuantity: 1,
-  capacity: "5L - Gia đình",
-  currentSlide: 0
-};
+  <script>
+    /* ================= STATE ================= */
+    const state = {
+      quantity: 1,
+      modalQuantity: 1,
+      capacity: "5L - Gia đình",
+      currentSlide: 0
+    };
 
-/* ================= CONFIG ================= */
-const PRICE = 599000;
-const TAX = 9000;
+    /* ================= CONFIG ================= */
+    const PRICE = 599000;
+    const TAX = 9000;
 
-const IMAGES = [
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360704/z1vvii52OtjFlmyY5RHwCaBmADxXnlX03e8tUtml_ut2v8b.png",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360704/U0dGoBcreX6CGAy1WKoozOp7zLYvY8YbLVWpnvUz_nvf7mr.png",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/arnwixhn_ymws3k.png",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/DQ54Hd47HsRQv7E92ZTprSkemQvaUIaBBttbskUA_ibgh3c.png",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/d9pnnobr_faktlp.png"
-];
+    const IMAGES = [
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360704/z1vvii52OtjFlmyY5RHwCaBmADxXnlX03e8tUtml_ut2v8b.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360704/U0dGoBcreX6CGAy1WKoozOp7zLYvY8YbLVWpnvUz_nvf7mr.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/arnwixhn_ymws3k.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/DQ54Hd47HsRQv7E92ZTprSkemQvaUIaBBttbskUA_ibgh3c.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/d9pnnobr_faktlp.png"
+    ];
 
-/* ================= DOM ================= */
-const $ = id => document.getElementById(id);
+    /* ================= DOM ================= */
+    const $ = id => document.getElementById(id);
 
-/* ================= FORMAT ================= */
-const formatPrice = n => n.toLocaleString("vi-VN") + "đ";
+    /* ================= FORMAT ================= */
+    const formatPrice = n => n.toLocaleString("vi-VN") + "đ";
 
-/* ================= UI ================= */
+    /* ================= UI ================= */
 
-function renderMainQty() {
-  $("quantity").value = state.quantity;
-}
+    function renderMainQty() {
+      $("quantity").value = state.quantity;
+    }
 
-function renderModalQty() {
-  $("modalQty").value = state.modalQuantity;
-}
+    function renderModalQty() {
+      $("modalQty").value = state.modalQuantity;
+    }
 
-function renderPrice() {
-  const sub = PRICE * state.modalQuantity;
-  const total = sub + TAX;
+    function renderPrice() {
+      const sub = PRICE * state.modalQuantity;
+      const total = sub + TAX;
 
-  $("cartMeta").innerHTML = `
+      $("cartMeta").innerHTML = `
     <span class="meta-badge">Dung tích: ${state.capacity}</span>
     <span class="meta-badge">SL: ${state.modalQuantity}</span>
   `;
 
-  $("cartPrice").innerText = formatPrice(sub);
-  $("subTotal").innerText = formatPrice(sub);
-  $("grandTotal").innerText = formatPrice(total);
-}
+      $("cartPrice").innerText = formatPrice(sub);
+      $("subTotal").innerText = formatPrice(sub);
+      $("grandTotal").innerText = formatPrice(total);
+    }
 
-/* ================= SLIDER ================= */
+    /* ================= SLIDER ================= */
 
-const slidesEl = $("slides");
-const dotsEl = $("dots");
-const thumbsEl = $("thumbs");
+    const slidesEl = $("slides");
+    const dotsEl = $("dots");
+    const thumbsEl = $("thumbs");
 
-function buildSlider() {
-  IMAGES.forEach((src, i) => {
+    function buildSlider() {
+      IMAGES.forEach((src, i) => {
 
-    const slide = document.createElement("div");
-    slide.className = "slide";
-    slide.innerHTML = `<img src="${src}">`;
-    slidesEl.appendChild(slide);
+        const slide = document.createElement("div");
+        slide.className = "slide";
+        slide.innerHTML = `<img src="${src}">`;
+        slidesEl.appendChild(slide);
 
-    const dot = document.createElement("div");
-    dot.className = "dot";
-    if (i === 0) dot.classList.add("active");
-    dot.onclick = () => goSlide(i);
-    dotsEl.appendChild(dot);
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        if (i === 0) dot.classList.add("active");
+        dot.onclick = () => goSlide(i);
+        dotsEl.appendChild(dot);
 
-    const thumb = document.createElement("img");
-    thumb.src = src;
-    thumb.className = "thumb";
-    if (i === 0) thumb.classList.add("active");
-    thumb.onclick = () => goSlide(i);
-    thumbsEl.appendChild(thumb);
-  });
-}
+        const thumb = document.createElement("img");
+        thumb.src = src;
+        thumb.className = "thumb";
+        if (i === 0) thumb.classList.add("active");
+        thumb.onclick = () => goSlide(i);
+        thumbsEl.appendChild(thumb);
+      });
+    }
 
-function goSlide(i) {
-  state.currentSlide = i;
-  slidesEl.style.transform = `translateX(-${i * 100}%)`;
+    function goSlide(i) {
+      state.currentSlide = i;
+      slidesEl.style.transform = `translateX(-${i * 100}%)`;
 
-  document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
-  document.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
+      document.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
 
-  dotsEl.children[i].classList.add("active");
-  thumbsEl.children[i].classList.add("active");
-}
+      dotsEl.children[i].classList.add("active");
+      thumbsEl.children[i].classList.add("active");
+    }
 
-/* ================= ACTION ================= */
+    /* ================= ACTION ================= */
 
-function increaseQty() {
-  state.quantity++;
-  renderMainQty();
-}
+    function increaseQty() {
+      state.quantity++;
+      renderMainQty();
+    }
 
-function decreaseQty() {
-  if (state.quantity > 1) {
-    state.quantity--;
-    renderMainQty();
-  }
-}
+    function decreaseQty() {
+      if (state.quantity > 1) {
+        state.quantity--;
+        renderMainQty();
+      }
+    }
 
-function increaseModalQty() {
-  state.modalQuantity++;
-  renderModalQty();
-  renderPrice();
-}
+    function increaseModalQty() {
+      state.modalQuantity++;
+      renderModalQty();
+      renderPrice();
+    }
 
-function decreaseModalQty() {
-  if (state.modalQuantity > 1) {
-    state.modalQuantity--;
-    renderModalQty();
-    renderPrice();
-  }
-}
+    function decreaseModalQty() {
+      if (state.modalQuantity > 1) {
+        state.modalQuantity--;
+        renderModalQty();
+        renderPrice();
+      }
+    }
 
-function inputModalQty(val) {
-  state.modalQuantity = Math.max(1, parseInt(val) || 1);
-  renderModalQty();
-  renderPrice();
-}
+    function inputModalQty(val) {
+      state.modalQuantity = Math.max(1, parseInt(val) || 1);
+      renderModalQty();
+      renderPrice();
+    }
 
-function selectCapacity(value, el) {
-  document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("active"));
-  el.classList.add("active");
+    function selectCapacity(value, el) {
+      document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("active"));
+      el.classList.add("active");
 
-  state.capacity = value;
-  $("selectedCapacity").innerText = value;
-}
+      state.capacity = value;
+      $("selectedCapacity").innerText = value;
+    }
 
-function openModal() {
-  // sync toàn bộ state
-  state.modalQuantity = state.quantity;
+    function openModal() {
+      // sync toàn bộ state
+      state.modalQuantity = state.quantity;
 
-  renderMainQty();
-  renderModalQty();
-  renderPrice();
+      renderMainQty();
+      renderModalQty();
+      renderPrice();
 
-  // update lại dung tích hiển thị
-  $("cartMeta").innerHTML = `
+      // update lại dung tích hiển thị
+      $("cartMeta").innerHTML = `
     <span class="meta-badge">Dung tích: ${state.capacity}</span>
     <span class="meta-badge">SL: ${state.modalQuantity}</span>
   `;
 
-  $("orderModal").classList.add("show");
-}
+      $("orderModal").classList.add("show");
+    }
 
-function closeModal() {
-  $("orderModal").classList.remove("show");
-}
+    function closeModal() {
+      $("orderModal").classList.remove("show");
+    }
 
-/* ================= TOAST ================= */
+    /* ================= TOAST ================= */
 
-function showToast(msg) {
-  const toast = $("toast");
-  toast.innerText = msg;
-  toast.classList.add("show");
+    function showToast(msg) {
+      const toast = $("toast");
+      toast.innerText = msg;
+      toast.classList.add("show");
 
-  setTimeout(() => toast.classList.remove("show"), 2000);
-}
+      setTimeout(() => toast.classList.remove("show"), 2000);
+    }
 
-/* ================= FAKE USER ================= */
+    /* ================= FAKE USER ================= */
 
-const names = ["Hải Minh", "Lan Trần", "Tuấn", "Ngọc", "Hùng"];
+    const names = ["Hải Minh", "Lan Trần", "Tuấn", "Ngọc", "Hùng"];
 
-setInterval(() => {
-  const name = names[Math.floor(Math.random() * names.length)];
-  showToast(`🔥 ${name} vừa đặt hàng`);
-}, 8000);
+    setInterval(() => {
+      const name = names[Math.floor(Math.random() * names.length)];
+      showToast(`🔥 ${name} vừa đặt hàng`);
+    }, 8000);
 
-/* ================= VIEWING ================= */
+    /* ================= VIEWING ================= */
 
-function updateViewing() {
-  const num = Math.floor(Math.random() * 20) + 5;
-  $("viewing").innerText = `👀 ${num} người đang xem`;
-}
+    function updateViewing() {
+      const num = Math.floor(Math.random() * 20) + 5;
+      $("viewing").innerText = `👀 ${num} người đang xem`;
+    }
 
-setInterval(updateViewing, 4000);
+    setInterval(updateViewing, 4000);
 
-/* ================= API ADDRESS ================= */
+    /* ================= API ADDRESS ================= */
 
-const API = "https://provinces.open-api.vn/api";
+    const API = "https://provinces.open-api.vn/api";
 
-fetch(API + "/p/")
-  .then(res => res.json())
-  .then(data => {
-    data.forEach(p => {
-      $("province").innerHTML += `<option value="${p.code}">${p.name}</option>`;
-    });
-  });
-
-$("province").onchange = function () {
-  fetch(API + `/p/${this.value}?depth=2`)
-    .then(res => res.json())
-    .then(data => {
-      $("district").disabled = false;
-      $("district").innerHTML = `<option>-- Chọn huyện --</option>`;
-      data.districts.forEach(d => {
-        $("district").innerHTML += `<option value="${d.code}">${d.name}</option>`;
+    fetch(API + "/p/")
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(p => {
+          $("province").innerHTML += `<option value="${p.code}">${p.name}</option>`;
+        });
       });
-    });
-};
 
-$("district").onchange = function () {
-  fetch(API + `/d/${this.value}?depth=2`)
-    .then(res => res.json())
-    .then(data => {
-      $("ward").disabled = false;
-      $("ward").innerHTML = `<option>-- Chọn xã --</option>`;
-      data.wards.forEach(w => {
-        $("ward").innerHTML += `<option value="${w.code}">${w.name}</option>`;
+    $("province").onchange = function () {
+      fetch(API + `/p/${this.value}?depth=2`)
+        .then(res => res.json())
+        .then(data => {
+          $("district").disabled = false;
+          $("district").innerHTML = `<option>-- Chọn huyện --</option>`;
+          data.districts.forEach(d => {
+            $("district").innerHTML += `<option value="${d.code}">${d.name}</option>`;
+          });
+        });
+    };
+
+    $("district").onchange = function () {
+      fetch(API + `/d/${this.value}?depth=2`)
+        .then(res => res.json())
+        .then(data => {
+          $("ward").disabled = false;
+          $("ward").innerHTML = `<option>-- Chọn xã --</option>`;
+          data.wards.forEach(w => {
+            $("ward").innerHTML += `<option value="${w.code}">${w.name}</option>`;
+          });
+        });
+    };
+
+    /* ================= EVENTS ================= */
+
+    $("plus").onclick = increaseQty;
+    $("minus").onclick = decreaseQty;
+
+    $("modalPlus").onclick = increaseModalQty;
+    $("modalMinus").onclick = decreaseModalQty;
+
+    $("modalQty").oninput = e => inputModalQty(e.target.value);
+
+    $("closeModal").onclick = closeModal;
+
+    document.querySelectorAll("#capacityOptions .option-btn")
+      .forEach(btn => {
+        btn.onclick = () => selectCapacity(btn.dataset.value, btn);
       });
+
+    /* ================= INIT ================= */
+
+    window.onload = () => {
+      renderMainQty();
+      buildSlider();
+      updateViewing();
+
+      const first = document.querySelector("#capacityOptions .option-btn");
+      if (first) first.click();
+    };
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.remove("show");
+      }
     });
-};
+    const modal = document.getElementById("orderModal");
+    const bottomBar = document.querySelector(".bottom-bar");
 
-/* ================= EVENTS ================= */
+    // mở modal
+    document.getElementById("buyNow").onclick = () => {
+      openModal(); // 🔥 THÊM DÒNG NÀY
+      bottomBar.style.display = "none";
+    };
+    // hàm đóng modal (chuẩn)
+    function closeModal() {
+      modal.classList.remove("show");
 
-$("plus").onclick = increaseQty;
-$("minus").onclick = decreaseQty;
+      // luôn bật lại nút (fix 100%)
+      bottomBar.style.display = "flex";
+    }
 
-$("modalPlus").onclick = increaseModalQty;
-$("modalMinus").onclick = decreaseModalQty;
+    // nút X
+    document.getElementById("closeModal").onclick = closeModal;
 
-$("modalQty").oninput = e => inputModalQty(e.target.value);
+    // click nền
+    modal.onclick = (e) => {
+      if (e.target === modal) closeModal();
+    };
 
-$("closeModal").onclick = closeModal;
-
-document.querySelectorAll("#capacityOptions .option-btn")
-  .forEach(btn => {
-    btn.onclick = () => selectCapacity(btn.dataset.value, btn);
-  });
-
-/* ================= INIT ================= */
-
-window.onload = () => {
-  renderMainQty();
-  buildSlider();
-  updateViewing();
-
-  const first = document.querySelector("#capacityOptions .option-btn");
-  if (first) first.click();
-};
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    modal.classList.remove("show");
-  }
-});
-const modal = document.getElementById("orderModal");
-const bottomBar = document.querySelector(".bottom-bar");
-
-// mở modal
-document.getElementById("buyNow").onclick = () => {
-  openModal(); // 🔥 THÊM DÒNG NÀY
-  bottomBar.style.display = "none";
-};
-// hàm đóng modal (chuẩn)
-function closeModal() {
-  modal.classList.remove("show");
-
-  // luôn bật lại nút (fix 100%)
-  bottomBar.style.display = "flex";
-}
-
-// nút X
-document.getElementById("closeModal").onclick = closeModal;
-
-// click nền
-modal.onclick = (e) => {
-  if (e.target === modal) closeModal();
-};
-
-// ESC
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModal();
-});
-</script>
+    // ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
 
 </body>
 
