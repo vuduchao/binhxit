@@ -2217,11 +2217,40 @@ document.getElementById("submitOrder").onclick = () => {
   formData.append("qty", state.modalQuantity);
   formData.append("total", (PRICE * state.modalQuantity) + TAX);
 
-  fetch("https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  });
+const form = document.createElement("form");
+form.method = "POST";
+form.action = "https://script.google.com/macros/s/AKfycbyNjlU1AbiR7JztoHfxdOo1lRTnj3lgQ1XCeJCk-kovHhMaCdLbsjwGozfe1pZEs-XfoA/exec";
+
+form.target = "hidden_iframe";
+
+// tạo input
+const addField = (name, value) => {
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = name;
+  input.value = value;
+  form.appendChild(input);
+};
+
+addField("name", name);
+addField("phone", phone);
+addField("address", address);
+addField("color", state.capacity);
+addField("qty", state.modalQuantity);
+addField("total", (PRICE * state.modalQuantity) + TAX);
+
+// iframe ẩn
+const iframe = document.createElement("iframe");
+iframe.name = "hidden_iframe";
+iframe.style.display = "none";
+
+document.body.appendChild(iframe);
+document.body.appendChild(form);
+
+form.submit();
+
+alert("✅ Đặt hàng thành công!");
+closeModal();
 
   alert("✅ Đặt hàng thành công!");
   closeModal();
