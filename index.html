@@ -2225,33 +2225,30 @@
         province.options[province.selectedIndex]?.text
       ].filter(Boolean).join(", ");
       
+const form = document.createElement("form");
+form.method = "POST";
+form.action = "https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec";
+form.target = "hidden_iframe";
+form.style.display = "none"; // 🔥 QUAN TRỌNG
 
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = "https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec";
+// tạo input
+const addField = (name, value) => {
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = name;
+  input.value = value;
+  form.appendChild(input);
+};
 
-      form.target = "hidden_iframe";
+addField("name", name);
+addField("phone", phone);
+addField("address", fullAddress);
+addField("color", state.capacity);
+addField("qty", state.modalQuantity);
+addField("total", (PRICE * state.modalQuantity) + TAX);
 
-      // tạo input
-      const addField = (name, value) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = value;
-        form.appendChild(input);
-      };
-
-      addField("name", name);
-      addField("phone", phone);
-      addField("address", fullAddress);
-      addField("color", state.capacity);
-      addField("qty", state.modalQuantity);
-      addField("total", (PRICE * state.modalQuantity) + TAX);
-
-      // iframe ẩn
-      // chỉ tạo iframe 1 lần
+// iframe (chỉ tạo 1 lần)
 let iframe = document.querySelector("iframe[name='hidden_iframe']");
-
 if (!iframe) {
   iframe = document.createElement("iframe");
   iframe.name = "hidden_iframe";
@@ -2262,9 +2259,14 @@ if (!iframe) {
 document.body.appendChild(form);
 form.submit();
 
-      alert("✅ Đặt hàng thành công!");
-      closeModal();
-    };
+// 🔥 xoá form sau khi gửi (tránh lỗi lần 2)
+setTimeout(() => form.remove(), 1000);
+
+// delay rồi mới báo thành công
+setTimeout(() => {
+  alert("✅ Đặt hàng thành công!");
+  closeModal();
+}, 500);
     document.getElementById("prevSlide").onclick = () => {
       let i = state.currentSlide - 1;
       if (i < 0) i = slidesEl.children.length - 1;
