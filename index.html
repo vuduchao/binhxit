@@ -2221,9 +2221,7 @@ document.getElementById("submitOrder").onclick = async () => {
   try {
 await fetch("https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec", {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
+  mode: "no-cors",
   body: JSON.stringify(data)
 });
 
