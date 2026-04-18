@@ -1234,101 +1234,103 @@
       margin-bottom: 12px;
     }
 
-  /* slider */
-.slider {
-  position: relative;
-}
+    /* slider */
+    .slider {
+      position: relative;
+    }
 
-/* slides */
-.slides {
-  display: flex;
-  transition: .3s;
-}
+    /* slides */
+    .slides {
+      display: flex;
+      transition: .3s;
+    }
 
-/* nút */
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+    /* nút */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
 
-  width: 38px;
-  height: 38px;
+      width: 38px;
+      height: 38px;
 
-  border-radius: 50%;
-  border: none;
+      border-radius: 50%;
+      border: none;
 
-  background: rgba(0,0,0,0.35);
-  color: #fff;
+      background: rgba(0, 0, 0, 0.35);
+      color: #fff;
 
-  font-size: 22px;
-  font-weight: bold;
+      font-size: 22px;
+      font-weight: bold;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  cursor: pointer;
-  z-index: 10;
-}
+      cursor: pointer;
+      z-index: 10;
+    }
 
-/* trái */
-.nav-btn.prev {
-  left: 10px;
-}
+    /* trái */
+    .nav-btn.prev {
+      left: 10px;
+    }
 
-/* phải */
-.nav-btn.next {
-  right: 10px;
-}
-/* popup người mua */
-.buyer-popup {
-  position: fixed;
-  top: 80px;
-  right: 10px;
+    /* phải */
+    .nav-btn.next {
+      right: 10px;
+    }
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    /* popup người mua */
+    .buyer-popup {
+      position: fixed;
+      top: 80px;
+      right: 10px;
 
-  background: #fff;
-  padding: 8px 12px;
-  border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
 
-  z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
-  opacity: 0;
-  transform: translateX(100%);
-  transition: .4s;
-}
+      z-index: 9999;
 
-/* hiện */
-.buyer-popup.show {
-  opacity: 1;
-  transform: translateX(0);
-}
+      opacity: 0;
+      transform: translateX(100%);
+      transition: .4s;
+    }
 
-/* avatar tròn */
-.buyer-popup img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+    /* hiện */
+    .buyer-popup.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-/* text */
-.buyer-text {
-  font-size: 13px;
-  color: #333;
-  font-weight: 600;
-}
+    /* avatar tròn */
+    .buyer-popup img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* text */
+    .buyer-text {
+      font-size: 13px;
+      color: #333;
+      font-weight: 600;
+    }
   </style>
 </head>
 <div id="buyerPopup" class="buyer-popup">
   <img id="buyerAvatar" src="https://i.pravatar.cc/100?img=3">
   <div class="buyer-text" id="buyerText"></div>
 </div>
+
 <body>
   <div class="app">
     <div class="viewing" id="viewing"></div>
@@ -1337,15 +1339,15 @@
     <section>
       <div class="slider">
 
-  <div class="slides" id="slides"></div>
+        <div class="slides" id="slides"></div>
 
-  <!-- 🔥 ĐẶT Ở ĐÂY (KHÔNG bị xoá) -->
-  <button class="nav-btn prev" id="prevSlide">‹</button>
-  <button class="nav-btn next" id="nextSlide">›</button>
+        <!-- 🔥 ĐẶT Ở ĐÂY (KHÔNG bị xoá) -->
+        <button class="nav-btn prev" id="prevSlide">‹</button>
+        <button class="nav-btn next" id="nextSlide">›</button>
 
-  <div class="dots" id="dots"></div>
+        <div class="dots" id="dots"></div>
 
-</div>
+      </div>
 
       <div class="thumbs" id="thumbs"></div>
     </section>
@@ -1382,29 +1384,25 @@
 
         <div class="color-item active" data-value="Đen"
           data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
-          <img
-            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
           <span>Đen</span>
         </div>
 
         <div class="color-item" data-value="Be"
           data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
-          <img
-            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
+          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
           <span>Be</span>
         </div>
 
         <div class="color-item" data-value="Hồng"
           data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
-          <img
-            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
+          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
           <span>Hồng</span>
         </div>
 
         <div class="color-item" data-value="Tím"
           data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
-          <img
-            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
+          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
           <span>Tím</span>
         </div>
 
@@ -1778,34 +1776,34 @@
   </div>
   <script>
     /* ================= STATE ================= */
-const names = ["Hải Minh", "Lan Trần", "Tuấn", "Ngọc", "Hùng"];
-const buyers = [
-  { name: "Hải Minh", avatar: "https://i.pravatar.cc/100?img=1" },
-  { name: "Lan Trần", avatar: "https://i.pravatar.cc/100?img=5" },
-  { name: "Tuấn", avatar: "https://i.pravatar.cc/100?img=8" },
-  { name: "Ngọc", avatar: "https://i.pravatar.cc/100?img=12" },
-  { name: "Hùng", avatar: "https://i.pravatar.cc/100?img=15" }
-];
+    const names = ["Hải Minh", "Lan Trần", "Tuấn", "Ngọc", "Hùng"];
+    const buyers = [
+      { name: "Hải Minh", avatar: "https://i.pravatar.cc/100?img=1" },
+      { name: "Lan Trần", avatar: "https://i.pravatar.cc/100?img=5" },
+      { name: "Tuấn", avatar: "https://i.pravatar.cc/100?img=8" },
+      { name: "Ngọc", avatar: "https://i.pravatar.cc/100?img=12" },
+      { name: "Hùng", avatar: "https://i.pravatar.cc/100?img=15" }
+    ];
 
-function showBuyerPopup() {
-  const buyer = buyers[Math.floor(Math.random() * buyers.length)];
+    function showBuyerPopup() {
+      const buyer = buyers[Math.floor(Math.random() * buyers.length)];
 
-  const popup = document.getElementById("buyerPopup");
-  const avatar = document.getElementById("buyerAvatar");
-  const text = document.getElementById("buyerText");
+      const popup = document.getElementById("buyerPopup");
+      const avatar = document.getElementById("buyerAvatar");
+      const text = document.getElementById("buyerText");
 
-  avatar.src = buyer.avatar;
-  text.innerText = `${buyer.name} vừa mua`;
+      avatar.src = buyer.avatar;
+      text.innerText = `${buyer.name} vừa mua`;
 
-  popup.classList.add("show");
+      popup.classList.add("show");
 
-  setTimeout(() => {
-    popup.classList.remove("show");
-  }, 3000);
-}
+      setTimeout(() => {
+        popup.classList.remove("show");
+      }, 3000);
+    }
 
-/* chạy liên tục */
-setInterval(showBuyerPopup, 7000);
+    /* chạy liên tục */
+    setInterval(showBuyerPopup, 7000);
     const state = {
       quantity: 1,
       modalQuantity: 1,
@@ -2199,71 +2197,70 @@ setInterval(showBuyerPopup, 7000);
 
     // chạy 15 phút
     startCountdown(15 * 60);
-document.getElementById("submitOrder").onclick = () => {
-  const name = $("fullName").value.trim();
-  const phone = $("phone").value.trim();
-  const province = $("province");
-const district = $("district");
-const ward = $("ward");
+    document.getElementById("submitOrder").onclick = () => {
+      const name = $("fullName").value.trim();
+      const phone = $("phone").value.trim();
+      const addressInput = $("address").value.trim();
 
-const fullAddress = [
-  $("address").value.trim(),
-  ward.options[ward.selectedIndex]?.text,
-  district.options[district.selectedIndex]?.text,
-  province.options[province.selectedIndex]?.text
-].filter(Boolean).join(", ");
+      const province = $("province");
+      const district = $("district");
+      const ward = $("ward");
 
-  if (!name || !phone || !address) {
-    alert("Vui lòng nhập đầy đủ thông tin");
-    return;
-  }
-if (!province.value || !district.value || !ward.value) {
-  alert("Vui lòng chọn đầy đủ Tỉnh / Huyện / Xã");
-  return;
-}
-  const formData = new FormData();
-  formData.append("name", name);
-  formData.append("phone", phone);
-  formData.append("address", address);
-  formData.append("color", state.capacity);
-  formData.append("qty", state.modalQuantity);
-  formData.append("total", (PRICE * state.modalQuantity) + TAX);
+      // validate input
+      if (!name || !phone || !addressInput) {
+        alert("Vui lòng nhập đầy đủ thông tin");
+        return;
+      }
 
-const form = document.createElement("form");
-form.method = "POST";
-form.action = "https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec";
+      if (!province.value || !district.value || !ward.value) {
+        alert("Vui lòng chọn đầy đủ Tỉnh / Huyện / Xã");
+        return;
+      }
 
-form.target = "hidden_iframe";
+      // ghép địa chỉ chuẩn
+      const fullAddress = [
+        addressInput,
+        ward.options[ward.selectedIndex]?.text,
+        district.options[district.selectedIndex]?.text,
+        province.options[province.selectedIndex]?.text
+      ].filter(Boolean).join(", ");
+      
 
-// tạo input
-const addField = (name, value) => {
-  const input = document.createElement("input");
-  input.type = "hidden";
-  input.name = name;
-  input.value = value;
-  form.appendChild(input);
-};
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec";
 
-addField("name", name);
-addField("phone", phone);
-addField("address", fullAddress);
-addField("color", state.capacity);
-addField("qty", state.modalQuantity);
-addField("total", (PRICE * state.modalQuantity) + TAX);
+      form.target = "hidden_iframe";
 
-// iframe ẩn
-const iframe = document.createElement("iframe");
-iframe.name = "hidden_iframe";
-iframe.style.display = "none";
+      // tạo input
+      const addField = (name, value) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      };
 
-document.body.appendChild(iframe);
-document.body.appendChild(form);
+      addField("name", name);
+      addField("phone", phone);
+      addField("address", fullAddress);
+      addField("color", state.capacity);
+      addField("qty", state.modalQuantity);
+      addField("total", (PRICE * state.modalQuantity) + TAX);
 
-form.submit();
+      // iframe ẩn
+      const iframe = document.createElement("iframe");
+      iframe.name = "hidden_iframe";
+      iframe.style.display = "none";
 
-  alert("✅ Đặt hàng thành công!");
-  closeModal();
-};
+      document.body.appendChild(iframe);
+      document.body.appendChild(form);
+
+      form.submit();
+
+      alert("✅ Đặt hàng thành công!");
+      closeModal();
+    };
     document.getElementById("prevSlide").onclick = () => {
       let i = state.currentSlide - 1;
       if (i < 0) i = slidesEl.children.length - 1;
