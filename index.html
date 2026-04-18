@@ -2202,13 +2202,25 @@ setInterval(showBuyerPopup, 7000);
 document.getElementById("submitOrder").onclick = () => {
   const name = $("fullName").value.trim();
   const phone = $("phone").value.trim();
-  const address = $("address").value.trim();
+  const province = $("province");
+const district = $("district");
+const ward = $("ward");
+
+const fullAddress = [
+  $("address").value.trim(),
+  ward.options[ward.selectedIndex]?.text,
+  district.options[district.selectedIndex]?.text,
+  province.options[province.selectedIndex]?.text
+].filter(Boolean).join(", ");
 
   if (!name || !phone || !address) {
     alert("Vui lòng nhập đầy đủ thông tin");
     return;
   }
-
+if (!province.value || !district.value || !ward.value) {
+  alert("Vui lòng chọn đầy đủ Tỉnh / Huyện / Xã");
+  return;
+}
   const formData = new FormData();
   formData.append("name", name);
   formData.append("phone", phone);
@@ -2234,7 +2246,7 @@ const addField = (name, value) => {
 
 addField("name", name);
 addField("phone", phone);
-addField("address", address);
+addField("address", fullAddress);
 addField("color", state.capacity);
 addField("qty", state.modalQuantity);
 addField("total", (PRICE * state.modalQuantity) + TAX);
