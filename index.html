@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bình xịt điện</title>
+  <title>Mũ chống nắng tích hợp quạt</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800&display=swap" rel="stylesheet">
 
@@ -537,8 +537,15 @@
     }
 
     .review-item {
-      padding: 14px 0;
-      border-bottom: 1px solid #eee;
+      padding: 12px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      margin: 10px;
+    }
+
+    .review-item {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
     .review-top {
@@ -589,8 +596,6 @@
       font-size: 16px;
       font-weight: 800;
       margin-bottom: 12px;
-      position: sticky;
-      top: 0;
     }
 
     .contact-box {
@@ -762,14 +767,6 @@
       gap: 8px;
       margin-top: 4px;
       font-size: 13px;
-    }
-
-    .meta-badge {
-      background: #f5f5f5;
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-weight: 600;
-      color: #444;
     }
 
     .cart-item-price {
@@ -963,7 +960,7 @@
 
     /* INPUT */
     #quantity {
-      width: 80px;
+      width: 60px;
       /* giảm lại */
       height: 40px;
       /* = nút */
@@ -1017,7 +1014,6 @@
       border: none;
       border-radius: 8px;
 
-      background: #ee4d2d;
       font-size: 16px;
       font-weight: 700;
 
@@ -1085,7 +1081,7 @@
 
     .urgency-box {
       font-size: 13px;
-      color: #ee4d2d;
+      color: #000000;
       text-align: center;
       margin: 10px 0;
       font-weight: 600;
@@ -1098,45 +1094,231 @@
       margin-top: 8px;
     }
 
-    .option-title {
-      background: #fff7f5;
-      border: 1px solid #ffd7cd;
-      padding: 10px 12px;
-      border-radius: 10px;
-    }
 
     .bottom-bar.hide {
       display: none;
     }
-    .product-desc .desc-text{
-  font-size:14px;
-  line-height:1.7;
-  color:#444;
-  margin-bottom:12px;
+
+    .product-desc .desc-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .desc-img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 12px 0;
+      display: block;
+    }
+
+    .product-desc .section-title {
+      margin-top: 10px;
+    }
+
+    .viewing {
+      position: fixed;
+      top: 10px;
+      /* lên trên */
+      left: 10px;
+      /* sang trái */
+
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+
+      padding: 6px 12px;
+      border-radius: 999px;
+
+      font-size: 13px;
+      z-index: 9999;
+
+      backdrop-filter: blur(4px);
+    }
+
+    .color-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .color-item {
+      width: 80px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+      font-size: 13px;
+    }
+
+    .color-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .color-item.active {
+      border-color: #ee4d2d;
+      background: #fff5f2;
+      color: #ee4d2d;
+      font-weight: 700;
+    }
+
+    /* ===== CART MODAL ITEM ===== */
+    .cart-item-top {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    /* ảnh sản phẩm */
+    #cartImage {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* khối info */
+    .cart-info {
+      flex: 1;
+    }
+
+    /* tên sản phẩm */
+    .cart-title {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    /* mô tả */
+    .cart-desc {
+      font-size: 13px;
+      color: #666;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* badge màu + số lượng */
+    .cart-item-meta {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .meta-badge {
+      background: #f5f5f5;
+      /* padding: 4px 8px; */
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #ee4d2d;
+    }
+
+    /* ===== GIÁ TRONG MODAL ===== */
+    .cart-price-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .cart-price {
+      color: #ee4d2d;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .cart-old-price {
+      color: #999;
+      font-size: 14px;
+      text-decoration: line-through;
+    }
+
+    .cart-discount {
+      background: #ffece8;
+      color: #ee4d2d;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .product-desc .desc-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+  /* slider */
+.slider {
+  position: relative;
 }
 
-.desc-img{
-  width:100%;
-  border-radius:12px;
-  margin:12px 0;
-  display:block;
+/* slides */
+.slides {
+  display: flex;
+  transition: .3s;
 }
 
-.product-desc .section-title{
-  margin-top:10px;
+/* nút */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* trái */
+.nav-btn.prev {
+  left: 10px;
+}
+
+/* phải */
+.nav-btn.next {
+  right: 10px;
 }
   </style>
 </head>
 
 <body>
   <div class="app">
+    <div class="viewing" id="viewing"></div>
 
     <!-- GALLERY -->
     <section>
       <div class="slider">
-        <div class="slides" id="slides"></div>
-        <div class="dots" id="dots"></div>
-      </div>
+
+  <div class="slides" id="slides"></div>
+
+  <!-- 🔥 ĐẶT Ở ĐÂY (KHÔNG bị xoá) -->
+  <button class="nav-btn prev" id="prevSlide">‹</button>
+  <button class="nav-btn next" id="nextSlide">›</button>
+
+  <div class="dots" id="dots"></div>
+
+</div>
 
       <div class="thumbs" id="thumbs"></div>
     </section>
@@ -1150,13 +1332,13 @@
     <section class="section">
 
       <div class="price-row">
-        <div class="price">599.000đ</div>
-        <div class="old-price">899.000đ</div>
-        <div class="discount">-33%</div>
+        <div class="price">199.000đ</div>
+        <div class="old-price">250.000đ</div>
+        <div class="discount">-50%</div>
       </div>
 
       <div class="title">
-        BÌNH XỊT NƯỚC TƯỚI CÂY PHUN SƯƠNG BẰNG ĐIỆN 5L/8L – PHUN MẠNH KHÔNG MỎI TAY
+        MŨ CHỐNG NẮNG TÍCH HỢP QUẠT – CHE NẮNG MÁT MẺ, KHÔNG LO NẮNG NÓNG
       </div>
 
       <div class="sold">Đã bán 12.4k+</div>
@@ -1166,14 +1348,38 @@
     <section class="section">
 
       <div class="option-title">
-        Dung tích: <span id="selectedCapacity">5L Dành cho gia đình</span>
+        Màu sắc: <span id="selectedCapacity">Đen</span>
       </div>
 
-      <div class="option-list" id="capacityOptions">
+      <div class="color-list" id="capacityOptions">
 
-        <button class="option-btn active" data-value="5L - Gia đình">
-          5L - Gia đình
-        </button>
+        <div class="color-item active" data-value="Đen"
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+          <span>Đen</span>
+        </div>
+
+        <div class="color-item" data-value="Be"
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
+          <span>Be</span>
+        </div>
+
+        <div class="color-item" data-value="Hồng"
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
+          <span>Hồng</span>
+        </div>
+
+        <div class="color-item" data-value="Tím"
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
+          <span>Tím</span>
+        </div>
 
       </div>
 
@@ -1181,7 +1387,7 @@
     <!-- SỐ LƯỢNG -->
     <section class="section">
 
-      <div class="option-title">Số lượng</div>
+      <div class="option-title">Số lượng:</div>
 
       <div class="qty-wrap">
         <button class="qty-btn" id="minus">-</button>
@@ -1197,103 +1403,105 @@
 
 
     </section>
-    <!-- REVIEW -->
-    <div class="section">
-      <div class="section product-desc">
+    <section class="section product-desc">
 
-        <div class="section-title">🌿 MÔ TẢ SẢN PHẨM</div>
+      <div class="desc-box">
+        <div class="section-title">🔥 TRỜI NẮNG KHÓ CHỊU? GIẢI PHÁP 2 TRONG 1!</div>
 
         <p class="desc-text">
-          Bình xịt tưới cây dung tích <b>5L</b> thiết kế <b>đeo vai thoải mái</b>,
-          giúp bạn chăm sóc vườn cây dễ dàng mà không tốn nhiều công sức.
-          Vòi phun linh hoạt, áp lực mạnh giúp <b>phân tán nước đều</b>,
-          phù hợp tưới cây, phun thuốc hoặc làm sạch sân vườn.
+          Bạn mệt mỏi vì <b>nắng nóng, đổ mồ hôi, bí bách khi ra ngoài?</b><br>
+          Chiếc <b>MŨ CHỐNG NẮNG TÍCH HỢP QUẠT</b> sẽ giúp bạn <b>mát ngay lập tức chỉ sau vài giây</b>.
         </p>
 
-        <div class="section-title">🔥 ĐẶC ĐIỂM NỔI BẬT</div>
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp">
+
+        <p class="desc-text">
+          Không chỉ che nắng, chiếc mũ này còn tích hợp <b>quạt mini siêu mát</b>,
+          giúp bạn luôn dễ chịu dù đang đi đường, du lịch hay làm việc ngoài trời.
+        </p>
+
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_1_na0gkz.webp">
+
+
+        <div class="section-title">⚡ VÌ SAO AI CŨNG MUỐN SỞ HỮU?</div>
 
         <ul class="desc-list">
-          <li>⚡ <b>1 chạm tự động</b> – không cần giữ tay</li>
-          <li>🔄 <b>Xoay 360°</b> – tia mạnh / phun sương</li>
-          <li>📏 <b>Cần dài 60cm</b> – dễ tiếp cận xa</li>
-          <li>✋ <b>Chống trượt</b> – cầm chắc, không mỏi</li>
-          <li>🔋 <b>Pin 2500mAh</b> – dùng 2–3 giờ</li>
-          <li>🎒 <b>Có dây đeo</b> – tiện di chuyển</li>
+          <li>🌬️ <b>Mát ngay tức thì</b> – quạt thổi trực tiếp vào mặt</li>
+          <li>☀️ <b>Chống nắng toàn diện</b> – vành rộng bảo vệ da</li>
+          <li>🔇 <b>Êm ái</b> – không gây tiếng ồn</li>
+          <li>💨 <b>Thoáng khí</b> – không bí đầu</li>
+          <li>⚡ <b>2 nguồn điện</b> – sạc USB + năng lượng mặt trời</li>
         </ul>
 
         <img class="desc-img"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/d9pnnobr_faktlp.png">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_2_ivqecc.webp">
+
+
+        <div class="section-title">🔥 ĐIỂM KHÁC BIỆT VƯỢT TRỘI</div>
+
+        <p class="desc-text">
+          Khác với mũ thông thường, sản phẩm này giúp bạn:
+        </p>
+
+        <ul class="desc-list">
+          <li>✔ Không còn cảm giác <b>nóng bức, khó chịu</b></li>
+          <li>✔ Không lo <b>mồ hôi chảy, bí đầu</b></li>
+          <li>✔ Luôn <b>mát mẻ – tự tin – thoải mái</b></li>
+        </ul>
+
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp">
+
+
+        <div class="section-title">🎯 THIẾT KẾ THÔNG MINH</div>
+
+        <p class="desc-text">
+          Quạt mini được tích hợp trực tiếp trên vành mũ, tạo luồng gió mạnh nhưng vẫn <b>êm và dễ chịu</b>.
+          Thiết kế mở giúp <b>thoát nhiệt nhanh</b>, giữ đầu luôn khô ráo.
+        </p>
+
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp">
+
+        <img class="desc-img"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp">
+
 
         <div class="section-title">📦 THÔNG TIN SẢN PHẨM</div>
 
         <ul class="desc-list">
-          <li>Dung tích: 5L</li>
-          <li>Pin: 2500mAh</li>
-          <li>Thời gian: 2–3 giờ</li>
-          <li>Cần phun: 60cm</li>
-          <li>Chế độ: tia mạnh / sương</li>
+          <li>Tên: Mũ chống nắng tích hợp quạt</li>
+          <li>Chất liệu: Polyester + ABS</li>
+          <li>Kích thước: 48–56cm | Vành 12cm</li>
+          <li>Trọng lượng: 145g</li>
+          <li>Màu: Đen, Be, Hồng, Tím</li>
+          <li>Nguồn điện: USB / Năng lượng mặt trời</li>
         </ul>
 
         <img class="desc-img"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/DQ54Hd47HsRQv7E92ZTprSkemQvaUIaBBttbskUA_ibgh3c.png">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_7_gfpfjl.webp">
 
-        <div class="section-title">🛠 HƯỚNG DẪN SỬ DỤNG</div>
 
-        <ul class="desc-list">
-          <li>1. Đổ nước vào bình</li>
-          <li>2. Bật công tắc</li>
-          <li>3. Chọn chế độ phun</li>
-          <li>4. Sử dụng không cần bóp tay</li>
-        </ul>
+        <div class="section-title">🏃 PHÙ HỢP CHO</div>
 
-        <img class="desc-img"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/arnwixhn_ymws3k.png">
+        <p class="desc-text">
+          🚴 Đi xe máy • 🚶 Đi bộ • 🏕 Du lịch • ⚽ Thể thao • 👷 Làm việc ngoài trời
+        </p>
+
 
         <div class="urgency-box">
-          ⚡ Chỉ còn 37 sản phẩm • 🔥 12 người vừa đặt trong 10 phút qua
+          ⚡ HÈ NÀY BÁN RẤT CHẠY • SỐ LƯỢNG CÓ HẠN
+          🔥 17 người vừa đặt trong 10 phút qua
         </div>
-
-        <img class="desc-img"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png">
 
         <div class="buy-trust">
           ✔ Kiểm tra hàng trước khi thanh toán
-          ✔ Đổi trả 7 ngày nếu lỗi
-          🚚 Nhận hàng rồi mới thanh toán (COD)
+          ✔ Đổi trả nếu lỗi
+          🚚 Giao hàng toàn quốc 2–5 ngày
         </div>
-
       </div>
-
-    </div>
-    <section class="section">
-
-      <div class="section-title">🌼 Đặc điểm nổi bật</div>
-
-      <ul class="desc-list">
-        <li>Hiệu suất cao, tiết kiệm thời gian và công sức</li>
-        <li>Áp lực phun ổn định, điều chỉnh tia linh hoạt</li>
-        <li>Pin dung lượng lớn, dùng liên tục 2–3 giờ</li>
-        <li>Có dây sạc và củ sạc đi kèm</li>
-      </ul>
-
-      <div class="section-title">⚙️ Thông số kỹ thuật</div>
-
-      <ul class="desc-list">
-        <li>Trọng lượng: 1.5kg</li>
-        <li>Pin: 3800mAh</li>
-        <li>Công suất: 2200mAh</li>
-        <li>Cần inox + béc đồng chắc chắn</li>
-      </ul>
-
-      <div class="section-title">🛠 Hướng dẫn sử dụng</div>
-
-      <ul class="desc-list">
-        <li>Đổ dung dịch vào bình và vặn chặt</li>
-        <li>Ấn công tắc để bắt đầu phun</li>
-        <li>Điều chỉnh tia phun theo nhu cầu</li>
-        <li>Không dùng dung dịch có cặn</li>
-      </ul>
-
     </section>
     <!-- ĐÁNH GIÁ SẢN PHẨM -->
     <section class="section">
@@ -1303,7 +1511,6 @@
       </div>
 
       <div id="reviewList"></div>
-
     </section>
     <!-- SHOP INFO -->
     <section class="section">
@@ -1375,8 +1582,9 @@
         </div>
       </div>
 
-      <div style="margin-bottom:16px;">
-        <img src="https://picsum.photos/500/300" style="width:100%; border-radius:12px;" />
+      <div style="margin-bottom:16px;width: 100%;">
+        <img style="width: 100%;"
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776447215/nguyentuan-google_kadmy0.png" />
       </div>
 
       <div style="margin-bottom:14px;">
@@ -1437,14 +1645,29 @@
 
           <div class="cart-item">
             <div class="cart-item-top">
-              BÌNH XỊT NƯỚC TƯỚI CÂY PHUN SƯƠNG BẰNG ĐIỆN 5L/8L – PHUN MẠNH KHÔNG MỎI TAY
+
+              <img id="cartImage"
+                src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+
+              <div class="cart-info">
+
+                <div class="cart-title">
+                  Mũ chống nắng tích hợp quạt
+                </div>
+
+                <div class="cart-desc">
+                  Thiết kế độc đáo với quạt mini đi kèm - Chất liệu vải thoáng khí, mềm mại và thoáng khí - Mang lại sự
+                  mát mẻ ở bất cứ đâu
+                </div>
+
+                <div class="cart-item-meta" id="cartMeta"></div>
+
+              </div>
+
             </div>
 
-            <div class="cart-item-meta" id="cartMeta">
-              --
-            </div>
             <div class="qty-wrap" style="margin-bottom:10px">
-
+              <div class="option-title-cart">Số lượng:</div>
               <button type="button" class="qty-btn" id="modalMinus">-</button>
 
               <input type="number" id="modalQty" value="1" min="1">
@@ -1453,8 +1676,14 @@
 
             </div>
 
-            <div class="cart-item-price" id="cartPrice">
-              0đ
+            <div class="cart-price-wrap">
+
+              <span class="cart-price" id="cartPrice">0đ</span>
+
+              <span class="cart-old-price" id="cartOldPrice">250.000đ</span>
+
+              <span class="cart-discount">-50%</span>
+
             </div>
           </div>
 
@@ -1462,21 +1691,21 @@
           <div class="order-totals">
 
             <div class="order-totals-row">
-              <span>Tạm tính</span>
+              <span>Tạm tính:</span>
               <span id="subTotal">0đ</span>
             </div>
 
+
+
+            <div class="order-totals-row">
+              <span>Thuế: </span>
+              <span>9.000đ</span>
+            </div>
             <div class="order-totals-row freeship">
               <span>🚚 Miễn phí vận chuyển</span>
             </div>
-
-            <div class="order-totals-row">
-              <span>Thuế</span>
-              <span>9.000đ</span>
-            </div>
-
             <div class="order-totals-row grand">
-              <span>Tổng thanh toán</span>
+              <span>Tổng thanh toán: </span>
               <span id="grandTotal">0đ</span>
             </div>
             <div class="urgency-box">
@@ -1517,71 +1746,45 @@
     <!-- TOAST -->
     <div class="toast" id="toast"></div>
   </div>
-  <div class="viewing" id="viewing"></div>
   <div class="bottom-bar">
     <button class="btn-main" id="buyNow">🔥 ĐẶT MUA NGAY - NHẬN HÀNG TRONG 2-3 NGÀY</button>
   </div>
   <script>
     /* ================= STATE ================= */
+
     const state = {
       quantity: 1,
       modalQuantity: 1,
-      capacity: "5L - Gia đình",
+      capacity: "Đen",
+      image: "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp",
       currentSlide: 0
     };
-
+    const modal = document.getElementById("orderModal");
+    const bottomBar = document.querySelector(".bottom-bar");
     /* ================= CONFIG ================= */
-    const PRICE = 599000;
+    const PRICE = 199000;
     const TAX = 9000;
+    const COLOR_IMAGES = {
+      "Đen": [
+        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp",
+      ],
+      "Be": [
+        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp",
 
-    const IMAGES = [
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360704/z1vvii52OtjFlmyY5RHwCaBmADxXnlX03e8tUtml_ut2v8b.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360704/U0dGoBcreX6CGAy1WKoozOp7zLYvY8YbLVWpnvUz_nvf7mr.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/aTeUtW81G5BXbgQQLCne0W2Kd9pg1ZDkioozkesK_gidfna.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/arnwixhn_ymws3k.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/DQ54Hd47HsRQv7E92ZTprSkemQvaUIaBBttbskUA_ibgh3c.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776360703/d9pnnobr_faktlp.png"
-    ];
+      ],
+      "Hồng": [
+        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp"
+      ],
+      "Tím": [
+        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp"
+      ]
+    };
+    function buildSliderFromArray(images) {
+      slidesEl.innerHTML = "";
+      dotsEl.innerHTML = "";
+      thumbsEl.innerHTML = "";
 
-    /* ================= DOM ================= */
-    const $ = id => document.getElementById(id);
-
-    /* ================= FORMAT ================= */
-    const formatPrice = n => n.toLocaleString("vi-VN") + "đ";
-
-    /* ================= UI ================= */
-
-    function renderMainQty() {
-      $("quantity").value = state.quantity;
-    }
-
-    function renderModalQty() {
-      $("modalQty").value = state.modalQuantity;
-    }
-
-    function renderPrice() {
-      const sub = PRICE * state.modalQuantity;
-      const total = sub + TAX;
-
-      $("cartMeta").innerHTML = `
-    <span class="meta-badge">Dung tích: ${state.capacity}</span>
-    <span class="meta-badge">SL: ${state.modalQuantity}</span>
-  `;
-
-      $("cartPrice").innerText = formatPrice(sub);
-      $("subTotal").innerText = formatPrice(sub);
-      $("grandTotal").innerText = formatPrice(total);
-    }
-
-    /* ================= SLIDER ================= */
-
-    const slidesEl = $("slides");
-    const dotsEl = $("dots");
-    const thumbsEl = $("thumbs");
-
-    function buildSlider() {
-      IMAGES.forEach((src, i) => {
+      images.forEach((src, i) => {
 
         const slide = document.createElement("div");
         slide.className = "slide";
@@ -1601,6 +1804,71 @@
         thumb.onclick = () => goSlide(i);
         thumbsEl.appendChild(thumb);
       });
+
+      goSlide(0); // 🔥 reset về slide đầu
+    }
+    function changeColor(color) {
+      state.capacity = color;
+      state.image = COLOR_IMAGES[color][0];
+
+      // 🔥 đổi slide đầu thôi
+      slidesEl.style.transform = `translateX(0%)`;
+
+      const firstImg = COLOR_IMAGES[color][0];
+      slidesEl.children[0].querySelector("img").src = firstImg;
+    }
+    const IMAGES = [
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776446439/png_1_sw7co0.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_1_na0gkz.webp"
+    ];
+
+    /* ================= DOM ================= */
+    const $ = id => document.getElementById(id);
+
+    /* ================= FORMAT ================= */
+    const formatPrice = n => n.toLocaleString("vi-VN") + "đ";
+
+    /* ================= UI ================= */
+
+    function renderMainQty() {
+      $("quantity").value = state.quantity;
+    }
+
+    function renderModalQty() {
+      $("modalQty").value = state.modalQuantity;
+    }
+    function renderPrice() {
+      const sub = PRICE * state.modalQuantity;
+      const total = sub + TAX;
+
+      document.getElementById("cartMeta").innerHTML = `
+    <span class="meta-badge">Màu: ${state.capacity}</span>
+    <span class="meta-badge">SL: ${state.modalQuantity}</span>
+  `;
+
+      document.getElementById("cartImage").src = state.image;
+
+      document.getElementById("cartPrice").innerText = formatPrice(sub);
+      document.getElementById("cartOldPrice").innerText = "250.000đ";
+
+      document.getElementById("subTotal").innerText = formatPrice(sub);
+      document.getElementById("grandTotal").innerText = formatPrice(total);
+    }
+
+    /* ================= SLIDER ================= */
+
+    const slidesEl = $("slides");
+    const dotsEl = $("dots");
+    const thumbsEl = $("thumbs");
+
+    function buildSlider() {
+      buildSliderFromArray(IMAGES);
     }
 
     function goSlide(i) {
@@ -1665,16 +1933,9 @@
       renderPrice();
 
       // update lại dung tích hiển thị
-      $("cartMeta").innerHTML = `
-    <span class="meta-badge">Dung tích: ${state.capacity}</span>
-    <span class="meta-badge">SL: ${state.modalQuantity}</span>
-  `;
 
       $("orderModal").classList.add("show");
-    }
-
-    function closeModal() {
-      $("orderModal").classList.remove("show");
+      document.querySelector(".modal-content").scrollTop = 0;
     }
 
     /* ================= TOAST ================= */
@@ -1751,15 +2012,90 @@
 
     $("modalQty").oninput = e => inputModalQty(e.target.value);
 
-    $("closeModal").onclick = closeModal;
+
 
     document.querySelectorAll("#capacityOptions .option-btn")
       .forEach(btn => {
         btn.onclick = () => selectCapacity(btn.dataset.value, btn);
       });
+    document.querySelectorAll("#capacityOptions .color-item")
+      .forEach(item => {
+        item.onclick = () => {
+
+          const color = item.dataset.value;
+
+          // đổi slider
+          changeColor(color);
+
+          // active UI
+          document.querySelectorAll(".color-item")
+            .forEach(i => i.classList.remove("active"));
+
+          item.classList.add("active");
+
+          // lưu state CHUẨN
+          state.capacity = color;
+          state.image = COLOR_IMAGES[color][0];
+
+          // update text ngoài
+          document.getElementById("selectedCapacity").innerText = color;
+        };
+      });
 
     /* ================= INIT ================= */
+    const reviews = [
+      {
+        name: "Nguyễn Văn Minh",
+        avatar: "https://i.pravatar.cc/100?img=1",
+        stars: 5,
+        content: "Đã nhận được hàng, chất lượng rất tốt, công suất gió đủ, quạt rất êm, rất đáng mua",
+        images: [
+          "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp",
+          "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp"
+        ]
+      },
+      {
+        name: "Trần Thị Lan",
+        avatar: "https://i.pravatar.cc/100?img=5",
+        stars: 5,
+        content: "Chiếc mũ này thực sự rất tuyệt vời, đặc biệt phù hợp với mùa hè, bạn không lo nóng nực khi làm việc ngoài trời, quạt còn có thể xoay 360 độ với góc phù hợp",
+        images: []
+      },
+      {
+        name: "Hoàng Tuấn",
+        avatar: "https://i.pravatar.cc/100?img=8",
+        stars: 4,
+        content: "Mũ có tác dụng che nắng rất tốt. Quạt điện nhỏ còn chạy bằng năng lượng mặt trời, có thể vừa sạc. Nhìn chung, đây là một sản phẩm khá tiết kiệm chi phí",
+        images: []
+      }
+    ];
 
+    function renderReviews() {
+      const container = $("reviewList");
+
+      container.innerHTML = reviews.map(r => `
+    <div class="review-item">
+      
+      <div class="review-top">
+        <img class="review-avatar" src="${r.avatar}">
+        <div>
+          <div class="review-name">${r.name}</div>
+          <div class="review-stars">${"★".repeat(r.stars)}</div>
+        </div>
+      </div>
+
+      <div class="review-content">${r.content}</div>
+
+      ${r.images.length ? `
+        <div class="review-images">
+          ${r.images.map(img => `<img class="review-img" src="${img}">`).join("")}
+        </div>
+      ` : ""}
+
+    </div>
+  `).join("");
+    }
+    renderReviews();
     window.onload = () => {
       renderMainQty();
       buildSlider();
@@ -1769,24 +2105,23 @@
       if (first) first.click();
     };
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        modal.classList.remove("show");
-      }
-    });
-    const modal = document.getElementById("orderModal");
-    const bottomBar = document.querySelector(".bottom-bar");
+
 
     // mở modal
+    let isOpening = false;
+
     document.getElementById("buyNow").onclick = () => {
-      openModal(); // 🔥 THÊM DÒNG NÀY
+      if (isOpening) return;
+      isOpening = true;
+
+      openModal();
       bottomBar.style.display = "none";
+
+      setTimeout(() => isOpening = false, 400);
     };
     // hàm đóng modal (chuẩn)
     function closeModal() {
       modal.classList.remove("show");
-
-      // luôn bật lại nút (fix 100%)
       bottomBar.style.display = "flex";
     }
 
@@ -1802,6 +2137,52 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeModal();
     });
+    let interval;
+
+    function startCountdown(duration) {
+      let timer = duration;
+
+      interval = setInterval(() => {
+        let minutes = Math.floor(timer / 60);
+        let seconds = timer % 60;
+
+        document.getElementById("countdown").innerText =
+          (minutes < 10 ? "0" : "") + minutes + ":" +
+          (seconds < 10 ? "0" : "") + seconds;
+
+        if (--timer < 0) {
+          clearInterval(interval); // 🔥 QUAN TRỌNG
+          document.getElementById("countdown").innerText = "Hết hạn";
+        }
+      }, 1000);
+    }
+
+    // chạy 15 phút
+    startCountdown(15 * 60);
+    document.getElementById("submitOrder").onclick = () => {
+      const name = $("fullName").value.trim();
+      const phone = $("phone").value.trim();
+      const address = $("address").value.trim();
+
+      if (!name || !phone || !address) {
+        showToast("⚠️ Vui lòng nhập đầy đủ thông tin");
+        return;
+      }
+
+      showToast("✅ Đặt hàng thành công!");
+      closeModal();
+    };
+    document.getElementById("prevSlide").onclick = () => {
+      let i = state.currentSlide - 1;
+      if (i < 0) i = slidesEl.children.length - 1;
+      goSlide(i);
+    };
+
+    document.getElementById("nextSlide").onclick = () => {
+      let i = state.currentSlide + 1;
+      if (i >= slidesEl.children.length) i = 0;
+      goSlide(i);
+    };
   </script>
 
 </body>
