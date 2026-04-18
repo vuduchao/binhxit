@@ -386,25 +386,6 @@
       font-weight: 800;
     }
 
-    /* ===== TOAST ===== */
-    .toast {
-      position: fixed;
-      bottom: 120px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #333;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      opacity: 0;
-      transition: .3s;
-    }
-
-    .toast.show {
-      opacity: 1;
-    }
-
     /* ===== MODAL ===== */
 
 
@@ -1299,9 +1280,55 @@
 .nav-btn.next {
   right: 10px;
 }
+/* popup người mua */
+.buyer-popup {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  z-index: 9999;
+
+  opacity: 0;
+  transform: translateX(100%);
+  transition: .4s;
+}
+
+/* hiện */
+.buyer-popup.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* avatar tròn */
+.buyer-popup img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* text */
+.buyer-text {
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
   </style>
 </head>
-
+<div id="buyerPopup" class="buyer-popup">
+  <img id="buyerAvatar" src="https://i.pravatar.cc/100?img=3">
+  <div class="buyer-text" id="buyerText"></div>
+</div>
 <body>
   <div class="app">
     <div class="viewing" id="viewing"></div>
@@ -1744,14 +1771,41 @@
 
     </div>
     <!-- TOAST -->
-    <div class="toast" id="toast"></div>
+
   </div>
   <div class="bottom-bar">
     <button class="btn-main" id="buyNow">🔥 ĐẶT MUA NGAY - NHẬN HÀNG TRONG 2-3 NGÀY</button>
   </div>
   <script>
     /* ================= STATE ================= */
+const names = ["Hải Minh", "Lan Trần", "Tuấn", "Ngọc", "Hùng"];
+const buyers = [
+  { name: "Hải Minh", avatar: "https://i.pravatar.cc/100?img=1" },
+  { name: "Lan Trần", avatar: "https://i.pravatar.cc/100?img=5" },
+  { name: "Tuấn", avatar: "https://i.pravatar.cc/100?img=8" },
+  { name: "Ngọc", avatar: "https://i.pravatar.cc/100?img=12" },
+  { name: "Hùng", avatar: "https://i.pravatar.cc/100?img=15" }
+];
 
+function showBuyerPopup() {
+  const buyer = buyers[Math.floor(Math.random() * buyers.length)];
+
+  const popup = document.getElementById("buyerPopup");
+  const avatar = document.getElementById("buyerAvatar");
+  const text = document.getElementById("buyerText");
+
+  avatar.src = buyer.avatar;
+  text.innerText = `${buyer.name} vừa mua`;
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 3000);
+}
+
+/* chạy liên tục */
+setInterval(showBuyerPopup, 7000);
     const state = {
       quantity: 1,
       modalQuantity: 1,
@@ -1940,22 +1994,8 @@
 
     /* ================= TOAST ================= */
 
-    function showToast(msg) {
-      const toast = $("toast");
-      toast.innerText = msg;
-      toast.classList.add("show");
-
-      setTimeout(() => toast.classList.remove("show"), 2000);
-    }
-
     /* ================= FAKE USER ================= */
 
-    const names = ["Hải Minh", "Lan Trần", "Tuấn", "Ngọc", "Hùng"];
-
-    setInterval(() => {
-      const name = names[Math.floor(Math.random() * names.length)];
-      showToast(`🔥 ${name} vừa đặt hàng`);
-    }, 8000);
 
     /* ================= VIEWING ================= */
 
@@ -2159,19 +2199,41 @@
 
     // chạy 15 phút
     startCountdown(15 * 60);
-    document.getElementById("submitOrder").onclick = () => {
-      const name = $("fullName").value.trim();
-      const phone = $("phone").value.trim();
-      const address = $("address").value.trim();
+document.getElementById("submitOrder").onclick = async () => {
+  const name = $("fullName").value.trim();
+  const phone = $("phone").value.trim();
+  const address = $("address").value.trim();
 
-      if (!name || !phone || !address) {
-        showToast("⚠️ Vui lòng nhập đầy đủ thông tin");
-        return;
-      }
+  if (!name || !phone || !address) {
+    alert("Vui lòng nhập đầy đủ thông tin");
+    return;
+  }
 
-      showToast("✅ Đặt hàng thành công!");
-      closeModal();
-    };
+  const data = {
+    name: name,
+    phone: phone,
+    address: address,
+    color: state.capacity,
+    qty: state.modalQuantity,
+    total: (PRICE * state.modalQuantity) + TAX
+  };
+
+  try {
+await fetch("https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+});
+
+    alert("✅ Đặt hàng thành công!");
+    closeModal();
+
+  } catch (err) {
+    alert("❌ Lỗi gửi đơn!");
+  }
+};
     document.getElementById("prevSlide").onclick = () => {
       let i = state.currentSlide - 1;
       if (i < 0) i = slidesEl.children.length - 1;
