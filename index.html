@@ -2198,86 +2198,70 @@
     // chạy 15 phút
     startCountdown(15 * 60);
     document.getElementById("submitOrder").onclick = () => {
-      const name = $("fullName").value.trim();
-      const phone = $("phone").value.trim();
-      const addressInput = $("address").value.trim();
+  const name = $("fullName").value.trim();
+  const phone = $("phone").value.trim();
+  const addressInput = $("address").value.trim();
 
-      const province = $("province");
-      const district = $("district");
-      const ward = $("ward");
+  const province = $("province");
+  const district = $("district");
+  const ward = $("ward");
 
-      // validate input
-      if (!name || !phone || !addressInput) {
-        alert("Vui lòng nhập đầy đủ thông tin");
-        return;
-      }
+  if (!name || !phone || !addressInput) {
+    alert("Vui lòng nhập đầy đủ thông tin");
+    return;
+  }
 
-      if (!province.value || !district.value || !ward.value) {
-        alert("Vui lòng chọn đầy đủ Tỉnh / Huyện / Xã");
-        return;
-      }
+  if (!province.value || !district.value || !ward.value) {
+    alert("Vui lòng chọn đầy đủ Tỉnh / Huyện / Xã");
+    return;
+  }
 
-      // ghép địa chỉ chuẩn
-      const fullAddress = [
-        addressInput,
-        ward.options[ward.selectedIndex]?.text,
-        district.options[district.selectedIndex]?.text,
-        province.options[province.selectedIndex]?.text
-      ].filter(Boolean).join(", ");
-      
-const form = document.createElement("form");
-form.method = "POST";
-form.action = "https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec";
-form.target = "hidden_iframe";
-form.style.display = "none"; // 🔥 QUAN TRỌNG
+  const fullAddress = [
+    addressInput,
+    ward.options[ward.selectedIndex]?.text,
+    district.options[district.selectedIndex]?.text,
+    province.options[province.selectedIndex]?.text
+  ].filter(Boolean).join(", ");
 
-// tạo input
-const addField = (name, value) => {
-  const input = document.createElement("input");
-  input.type = "hidden";
-  input.name = name;
-  input.value = value;
-  form.appendChild(input);
-};
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = "https://script.google.com/macros/s/AKfycbxxtBXquwjwHylvhdPmeCAl9Xt1UtuALwZu4VXX40FwylxPuESfSIFinQs8oqSa4sse/exec";
+  form.target = "hidden_iframe";
+  form.style.display = "none";
 
-addField("name", name);
-addField("phone", phone);
-addField("address", fullAddress);
-addField("color", state.capacity);
-addField("qty", state.modalQuantity);
-addField("total", (PRICE * state.modalQuantity) + TAX);
+  const addField = (name, value) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    input.value = value;
+    form.appendChild(input);
+  };
 
-// iframe (chỉ tạo 1 lần)
-let iframe = document.querySelector("iframe[name='hidden_iframe']");
-if (!iframe) {
-  iframe = document.createElement("iframe");
-  iframe.name = "hidden_iframe";
-  iframe.style.display = "none";
-  document.body.appendChild(iframe);
-}
+  addField("name", name);
+  addField("phone", phone);
+  addField("address", fullAddress);
+  addField("color", state.capacity);
+  addField("qty", state.modalQuantity);
+  addField("total", (PRICE * state.modalQuantity) + TAX);
 
-document.body.appendChild(form);
-form.submit();
+  let iframe = document.querySelector("iframe[name='hidden_iframe']");
+  if (!iframe) {
+    iframe = document.createElement("iframe");
+    iframe.name = "hidden_iframe";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+  }
 
-// 🔥 xoá form sau khi gửi (tránh lỗi lần 2)
-setTimeout(() => form.remove(), 1000);
+  document.body.appendChild(form);
+  form.submit();
 
-// delay rồi mới báo thành công
-setTimeout(() => {
-  alert("✅ Đặt hàng thành công!");
-  closeModal();
-}, 500);
-    document.getElementById("prevSlide").onclick = () => {
-      let i = state.currentSlide - 1;
-      if (i < 0) i = slidesEl.children.length - 1;
-      goSlide(i);
-    };
+  setTimeout(() => form.remove(), 1000);
 
-    document.getElementById("nextSlide").onclick = () => {
-      let i = state.currentSlide + 1;
-      if (i >= slidesEl.children.length) i = 0;
-      goSlide(i);
-    };  
+  setTimeout(() => {
+    alert("✅ Đặt hàng thành công!");
+    closeModal();
+  }, 500);
+}; // ✅ ĐÓNG HÀM Ở ĐÂY
   </script>
 
 </body>
