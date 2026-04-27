@@ -1151,6 +1151,7 @@
       display: flex;
       gap: 12px;
       align-items: flex-start;
+      margin-bottom: 10px;
     }
 
     /* ảnh sản phẩm */
@@ -1690,7 +1691,33 @@
               </div>
 
             </div>
+            <div class="option-title">Chọn màu:</div>
 
+            <div class="color-list" id="modalColorOptions">
+
+              <div class="color-item active" data-value="Đen">
+                <img
+                  src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+                <span>Đen</span>
+              </div>
+
+              <div class="color-item" data-value="Be">
+                <img
+                  src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
+                <span>Be</span>
+              </div>
+
+              <div class="color-item" data-value="Hồng">
+                <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
+                <span>Hồng</span>
+              </div>
+
+              <div class="color-item" data-value="Tím">
+                <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
+                <span>Tím</span>
+              </div>
+
+            </div>
             <div class="qty-wrap" style="margin-bottom:10px">
               <div class="option-title-cart">Số lượng:</div>
               <button type="button" class="qty-btn" id="modalMinus">-</button>
@@ -1901,7 +1928,8 @@
 
       document.getElementById("cartMeta").innerHTML = `
     <span class="meta-badge">Màu: ${state.capacity}</span>
-    <span class="meta-badge">SL: ${state.modalQuantity}</span>
+    <span>_</span>
+    <span class="meta-badge">Số Lượng: ${state.modalQuantity}</span>
   `;
 
       document.getElementById("cartImage").src = state.image;
@@ -1988,6 +2016,14 @@
 
       $("orderModal").classList.add("show");
       document.querySelector(".modal-content").scrollTop = 0;
+      // sync màu vào modal
+      document.querySelectorAll("#modalColorOptions .color-item")
+        .forEach(i => {
+          i.classList.remove("active");
+          if (i.dataset.value === state.capacity) {
+            i.classList.add("active");
+          }
+        });
     }
 
     /* ================= TOAST ================= */
@@ -2057,6 +2093,7 @@
         btn.onclick = () => selectCapacity(btn.dataset.value, btn);
       });
     document.querySelectorAll("#capacityOptions .color-item")
+
       .forEach(item => {
         item.onclick = () => {
 
@@ -2066,7 +2103,7 @@
           changeColor(color);
 
           // active UI
-          document.querySelectorAll(".color-item")
+          document.querySelectorAll("#capacityOptions .color-item")
             .forEach(i => i.classList.remove("active"));
 
           item.classList.add("active");
@@ -2076,6 +2113,30 @@
           state.image = COLOR_IMAGES[color][0];
 
           // update text ngoài
+          document.getElementById("selectedCapacity").innerText = color;
+        };
+      });
+    // ===== COLOR TRONG MODAL =====
+    document.querySelectorAll("#modalColorOptions .color-item")
+      .forEach(item => {
+        item.onclick = () => {
+
+          const color = item.dataset.value;
+
+          // bỏ active cũ trong modal
+          document.querySelectorAll("#modalColorOptions .color-item")
+            .forEach(i => i.classList.remove("active"));
+
+          item.classList.add("active");
+
+          // cập nhật state
+          state.capacity = color;
+          state.image = COLOR_IMAGES[color][0];
+
+          // update UI
+          renderPrice();
+
+          // update text ngoài (đồng bộ luôn)
           document.getElementById("selectedCapacity").innerText = color;
         };
       });
@@ -2141,6 +2202,7 @@
 
       const first = document.querySelector("#capacityOptions .option-btn");
       if (first) first.click();
+
     };
 
 
@@ -2198,71 +2260,89 @@
     // chạy 15 phút
     startCountdown(15 * 60);
     document.getElementById("submitOrder").onclick = () => {
-      console.log("CLICK ĐẶT HÀNG"); // 👈 thêm ở đây
-  const name = $("fullName").value.trim();
-  const phone = $("phone").value.trim();
-  const addressInput = $("address").value.trim();
+      const nameEl = $("fullName");
+      const phoneEl = $("phone");
+      const addressEl = $("address");
 
-  const province = $("province");
-  const district = $("district");
-  const ward = $("ward");
+      const name = nameEl.value.trim();
+      const phone = phoneEl.value.trim();
+      const addressInput = addressEl.value.trim();
 
-  if (!name || !phone || !addressInput) {
-    alert("Vui lòng nhập đầy đủ thông tin");
-    return;
-  }
+      // reset lỗi cũ
+      [nameEl, phoneEl, addressEl].forEach(i => i.classList.remove("shake"));
 
-  if (!province.value || !district.value || !ward.value) {
-    alert("Vui lòng chọn đầy đủ Tỉnh / Huyện / Xã");
-    return;
-  }
+      // ===== VALIDATE =====
 
-  const fullAddress = [
-    addressInput,
-    ward.options[ward.selectedIndex]?.text,
-    district.options[district.selectedIndex]?.text,
-    province.options[province.selectedIndex]?.text
-  ].filter(Boolean).join(", ");
+      // TÊN
+      if (!name || name.length < 2 || /\d/.test(name)) {
+        nameEl.focus();
+        nameEl.classList.add("shake");
+        return;
+      }
 
-  const form = document.createElement("form");
-  form.method = "POST";
-  form.action = "https://script.google.com/macros/s/AKfycbw7tkFKLco1RfYiInpxa5bKLb9B40UhdyfC5USgvm_RJrtDTOeVd1qblVKEYoDDBT2xXQ/exec";
-  form.target = "hidden_iframe";
-  form.style.display = "none";
+      // SĐT
+      const phoneRegex = /^(0|\+84)[0-9]{9}$/;
+      if (!phoneRegex.test(phone)) {
+        phoneEl.focus();
+        phoneEl.classList.add("shake");
+        return;
+      }
 
-  const addField = (name, value) => {
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = name;
-    input.value = value;
-    form.appendChild(input);
-  };
+      // ĐỊA CHỈ
+      if (!addressInput || addressInput.length < 5) {
+        addressEl.focus();
+        addressEl.classList.add("shake");
+        return;
+      }
 
-  addField("name", name);
-  addField("phone", phone);
-  addField("address", fullAddress);
-  addField("color", state.capacity);
-  addField("qty", state.modalQuantity);
-  addField("total", (PRICE * state.modalQuantity) + TAX);
+      // ===== OK thì submit =====
 
-  let iframe = document.querySelector("iframe[name='hidden_iframe']");
-  if (!iframe) {
-    iframe = document.createElement("iframe");
-    iframe.name = "hidden_iframe";
-    iframe.style.display = "none";
-    document.body.appendChild(iframe);
-  }
+      const fullAddress = [
+        addressInput,
+        ward.options[ward.selectedIndex]?.text,
+        district.options[district.selectedIndex]?.text,
+        province.options[province.selectedIndex]?.text
+      ].filter(Boolean).join(", ");
 
-  document.body.appendChild(form);
-  form.submit();
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://script.google.com/macros/s/AKfycbw7tkFKLco1RfYiInpxa5bKLb9B40UhdyfC5USgvm_RJrtDTOeVd1qblVKEYoDDBT2xXQ/exec";
+      form.target = "hidden_iframe";
+      form.style.display = "none";
 
-  setTimeout(() => form.remove(), 1000);
+      const addField = (name, value) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      };
 
-  setTimeout(() => {
-    alert("✅ Đặt hàng thành công!");
-    closeModal();
-  }, 500);
-}; // ✅ ĐÓNG HÀM Ở ĐÂY
+      addField("name", name);
+      addField("phone", phone);
+      addField("address", fullAddress);
+      addField("color", state.capacity);
+      addField("qty", state.modalQuantity);
+      addField("total", (PRICE * state.modalQuantity) + TAX);
+
+      let iframe = document.querySelector("iframe[name='hidden_iframe']");
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.name = "hidden_iframe";
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+
+      setTimeout(() => form.remove(), 1000);
+
+      setTimeout(() => {
+        alert("✅ Đặt hàng thành công!");
+        closeModal();
+      }, 500);
+    };
   </script>
 
 </body>
