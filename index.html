@@ -34,7 +34,8 @@
 
     .slides {
       display: flex;
-      transition: .3s
+      transition: .3s;
+       touch-action: pan-y;
     }
 
     .slide {
@@ -1942,10 +1943,48 @@
     }
 
     /* ================= SLIDER ================= */
-
     const slidesEl = $("slides");
-    const dotsEl = $("dots");
-    const thumbsEl = $("thumbs");
+const dotsEl = $("dots");
+const thumbsEl = $("thumbs");
+
+// ===== NEXT / PREV =====
+document.getElementById("nextSlide").onclick = () => {
+  let next = state.currentSlide + 1;
+  if (next >= slidesEl.children.length) next = 0;
+  goSlide(next);
+};
+
+document.getElementById("prevSlide").onclick = () => {
+  let prev = state.currentSlide - 1;
+  if (prev < 0) prev = slidesEl.children.length - 1;
+  goSlide(prev);
+};
+
+// ===== SWIPE MOBILE =====
+let startX = 0;
+let endX = 0;
+
+slidesEl.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+slidesEl.addEventListener("touchend", e => {
+  endX = e.changedTouches[0].clientX;
+
+  const diff = startX - endX;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    let next = state.currentSlide + 1;
+    if (next >= slidesEl.children.length) next = 0;
+    goSlide(next);
+  } else {
+    let prev = state.currentSlide - 1;
+    if (prev < 0) prev = slidesEl.children.length - 1;
+    goSlide(prev);
+  }
+});
 
     function buildSlider() {
       buildSliderFromArray(IMAGES);
