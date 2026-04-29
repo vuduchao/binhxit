@@ -35,7 +35,7 @@
     .slides {
       display: flex;
       transition: .3s;
-       touch-action: pan-y;
+      touch-action: pan-y;
     }
 
     .slide {
@@ -324,83 +324,82 @@
     }
 
     .btn-buy {
-  position: relative;
-  overflow: hidden;
+      position: relative;
+      overflow: hidden;
 
-  width: 100%;
-  height: 52px;
+      width: 100%;
+      height: 52px;
 
-  border-radius: 12px;
-  border: none;
-  outline: none;
+      border-radius: 12px;
+      border: none;
+      outline: none;
 
-  background: linear-gradient(90deg, #ff6a2b, #ee4d2d);
-  color: #fff;
+      background: linear-gradient(90deg, #ff6a2b, #ee4d2d);
+      color: #fff;
 
-  font-size: 16px;
-  font-weight: 600;
+      font-size: 16px;
+      font-weight: 600;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  transition: all 0.2s ease;
+      transition: all 0.2s ease;
 
-  box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
-}
+      box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
+    }
 
-/* click */
-.btn-buy:active {
-  transform: scale(0.96);
-}
+    /* click */
+    .btn-buy:active {
+      transform: scale(0.96);
+    }
 
-/* shine luôn chạy */
-.btn-buy::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
+    /* shine luôn chạy */
+    .btn-buy::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
 
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.5),
-    transparent
-  );
+      background: linear-gradient(120deg,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          transparent);
 
-  transform: skewX(-20deg);
+      transform: skewX(-20deg);
 
-  animation: shine 2.5s infinite;
-}
+      animation: shine 2.5s infinite;
+    }
 
-@keyframes shine {
-  100% {
-    left: 120%;
-  }
-}
-/* ===== PULSE NHẸ (NHÁY) ===== */
-.btn-buy.pulse {
-  animation: pulseSoft 1.6s ease-in-out infinite;
-}
+    @keyframes shine {
+      100% {
+        left: 120%;
+      }
+    }
 
-@keyframes pulseSoft {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 4px 12px rgba(238,77,45,0.25);
-  }
+    /* ===== PULSE NHẸ (NHÁY) ===== */
+    .btn-buy.pulse {
+      animation: pulseSoft 1.6s ease-in-out infinite;
+    }
 
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 8px 20px rgba(238,77,45,0.35);
-  }
+    @keyframes pulseSoft {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
+      }
 
-  100% {
-    transform: scale(1);
-    box-shadow: 0 4px 12px rgba(238,77,45,0.25);
-  }
-}
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 8px 20px rgba(238, 77, 45, 0.35);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
+      }
+    }
 
     /* ===== MODAL ===== */
 
@@ -1299,83 +1298,86 @@
     }
 
     /* ===== RECENT ORDER (SHOPEE STYLE) ===== */
-.recent-order {
-  position: fixed;
-  bottom: 80px;
-  left: 12px;
+    .recent-order {
+      position: fixed;
+      bottom: 80px;
+      left: 12px;
 
-  display: flex;
-  align-items: center;
-  gap: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
 
-  background: #fff;
-  padding: 8px 10px;
+      background: #fff;
+      padding: 8px 10px;
 
-  border-radius: 8px; /* nhỏ lại cho gọn */
-  border: 1px solid #eee;
+      border-radius: 8px;
+      /* nhỏ lại cho gọn */
+      border: 1px solid #eee;
 
-  font-size: 12.5px;
-  line-height: 1.3;
+      font-size: 12.5px;
+      line-height: 1.3;
 
-  opacity: 0;
-  transform: translateY(10px);
+      opacity: 0;
+      transform: translateY(10px);
 
-  transition: all 0.25s ease;
-  z-index: 999;
-}
+      transition: all 0.25s ease;
+      z-index: 999;
+    }
 
-/* hiện */
-.recent-order.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* hiện */
+    .recent-order.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* avatar */
-.recent-order img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
+    /* avatar */
+    .recent-order img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
 
-/* tên */
-.ro-name {
-  font-weight: 600;
-  font-size: 13px;
-}
+    /* tên */
+    .ro-name {
+      font-weight: 600;
+      font-size: 13px;
+    }
 
-/* nội dung */
-.ro-text {
-  color: #444;
-}
+    /* nội dung */
+    .ro-text {
+      color: #444;
+    }
 
-/* thời gian */
-.ro-time {
-  font-size: 11px;
-  color: #999;
-}
-.ro-name {
-  font-weight: 600;
-}
+    /* thời gian */
+    .ro-time {
+      font-size: 11px;
+      color: #999;
+    }
 
-.ro-text {
-  color: #555;
-}
+    .ro-name {
+      font-weight: 600;
+    }
 
-.ro-time {
-  font-size: 11px;
-  color: #999;
-}
+    .ro-text {
+      color: #555;
+    }
+
+    .ro-time {
+      font-size: 11px;
+      color: #999;
+    }
+
     /* ===== ERROR STYLE ===== */
-.input-error {
-  border: 1.5px solid #ee4d2d !important;
-  background: #fff5f2;
-}
+    .input-error {
+      border: 1.5px solid #ee4d2d !important;
+      background: #fff5f2;
+    }
 
-.error-text {
-  color: #ee4d2d;
-  font-size: 12px;
-  margin: -6px 0 8px;
-}
+    .error-text {
+      color: #ee4d2d;
+      font-size: 12px;
+      margin: -6px 0 8px;
+    }
   </style>
 </head>
 <div id="recentOrder" class="recent-order">
@@ -1826,10 +1828,10 @@
         <form id="orderForm">
 
           <input id="fullName" placeholder="Họ và tên">
-<div id="errName" class="error-text"></div>
+          <div id="errName" class="error-text"></div>
 
-<input id="phone" placeholder="Số điện thoại">
-<div id="errPhone" class="error-text"></div>
+          <input id="phone" placeholder="Số điện thoại">
+          <div id="errPhone" class="error-text"></div>
 
           <select id="province">
             <option value="">-- Chọn Tỉnh --</option>
@@ -1843,9 +1845,9 @@
             <option value="">-- Chọn Xã --</option>
           </select>
 
-         
-<input id="address" placeholder="Địa chỉ chi tiết (số nhà, tên đường) *">
-<div id="errAddress" class="error-text"></div>
+
+          <input id="address" placeholder="Địa chỉ chi tiết (số nhà, tên đường) *">
+          <div id="errAddress" class="error-text"></div>
 
           <button type="button" id="submitOrder" class="submit-btn">
             XÁC NHẬN ĐẶT HÀNG
@@ -1864,46 +1866,46 @@
     <button class="btn-buy pulse" id="buyNow">🔥 ĐẶT MUA NGAY - Nhận Hàng Trong 2-3 Ngày</button>
 
   </div>
-    
+
   <script>
-    
+
     /* ================= STATE ================= */
     const names = [
-  "Nguyễn Văn Chính", "Trần Thị Tươi", "Lê Minh Nam",
-  "Hằng Ngọc", "Hoàng Thị Lan", "Nguyễn Thị Lý"
-];
+      "Nguyễn Văn Chính", "Trần Thị Tươi", "Lê Minh Nam",
+      "Hằng Ngọc", "Hoàng Thị Lan", "Nguyễn Thị Lý"
+    ];
 
-function getRandomName() {
-  return names[Math.floor(Math.random() * names.length)];
-}
+    function getRandomName() {
+      return names[Math.floor(Math.random() * names.length)];
+    }
 
-function getTimeAgo() {
-  const mins = Math.floor(Math.random() * 5) + 1;
-  return `${mins} phút trước`;
-}
+    function getTimeAgo() {
+      const mins = Math.floor(Math.random() * 5) + 1;
+      return `${mins} phút trước`;
+    }
 
-function getAvatar(name) {
-  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ee4d2d&color=fff`;
-}
+    function getAvatar(name) {
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ee4d2d&color=fff`;
+    }
 
-function showRecentOrder() {
-  const el = document.getElementById("recentOrder");
+    function showRecentOrder() {
+      const el = document.getElementById("recentOrder");
 
-  const name = getRandomName();
+      const name = getRandomName();
 
-  document.getElementById("roName").innerText = name;
-  document.getElementById("roAvatar").src = getAvatar(name);
-  document.getElementById("roTime").innerText = getTimeAgo();
+      document.getElementById("roName").innerText = name;
+      document.getElementById("roAvatar").src = getAvatar(name);
+      document.getElementById("roTime").innerText = getTimeAgo();
 
-  el.classList.add("show");
+      el.classList.add("show");
 
-  setTimeout(() => {
-    el.classList.remove("show");
-  }, 4000);
-}
+      setTimeout(() => {
+        el.classList.remove("show");
+      }, 4000);
+    }
 
-// chạy lặp
-setInterval(showRecentOrder, 8000);
+    // chạy lặp
+    setInterval(showRecentOrder, 8000);
     const state = {
       quantity: 1,
       modalQuantity: 1,
@@ -1916,7 +1918,7 @@ setInterval(showRecentOrder, 8000);
     /* ================= CONFIG ================= */
     const PRICE = 199000;
     const TAX = 9000;
-    const COLOR_IMAGES = {
+    let COLOR_IMAGES = {
       "Đen": [
         "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp",
       ],
@@ -1969,7 +1971,7 @@ setInterval(showRecentOrder, 8000);
       const firstImg = COLOR_IMAGES[color][0];
       slidesEl.children[0].querySelector("img").src = firstImg;
     }
-    const IMAGES = [
+    let IMAGES = [
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776446439/png_1_sw7co0.png",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
@@ -1980,37 +1982,37 @@ setInterval(showRecentOrder, 8000);
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_1_na0gkz.webp"
     ];
     const MY_AVATARS = [
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/475957823_1791718101401545_4591790055981185455_n_gacpxt.jpg",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/460060022_2092898561141255_3181223295264104255_n_nn0gd0.jpg",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/62256823_102611207672173_6206475085591609344_n_z7i82z.jpg",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/612063236_2692940047725967_7948547630782815755_n_yigpja.jpg",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/300378575_392933309638783_2204315263781934987_n_vnkajd.jpg"
-];
-      // ảnh bạn gửi
-const REVIEW_IMAGES = [
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530351/png_7_myvsu2.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530351/png_ebignd.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_5_z8o6iu.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_3_bwjaka.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_6_olia1e.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_4_pudbxp.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_2_usoanv.webp"
-];
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/475957823_1791718101401545_4591790055981185455_n_gacpxt.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/460060022_2092898561141255_3181223295264104255_n_nn0gd0.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/62256823_102611207672173_6206475085591609344_n_z7i82z.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/612063236_2692940047725967_7948547630782815755_n_yigpja.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/300378575_392933309638783_2204315263781934987_n_vnkajd.jpg"
+    ];
+    // ảnh bạn gửi
+    const REVIEW_IMAGES = [
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530351/png_7_myvsu2.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530351/png_ebignd.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_5_z8o6iu.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_3_bwjaka.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_6_olia1e.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_4_pudbxp.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_2_usoanv.webp"
+    ];
 
-// 🔥 lấy luôn ảnh từ phần mô tả trong file của bạn
-const DESC_IMAGES = [
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_1_na0gkz.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_2_ivqecc.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
-  "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp"
-];
+    // 🔥 lấy luôn ảnh từ phần mô tả trong file của bạn
+    const DESC_IMAGES = [
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_1_na0gkz.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_2_ivqecc.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp"
+    ];
 
-// trộn ảnh
-const ALL_REVIEW_IMAGES = [...REVIEW_IMAGES, ...DESC_IMAGES];
-const VN_AVATARS = [
-     "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776446439/png_1_sw7co0.png",
+    // trộn ảnh
+    const ALL_REVIEW_IMAGES = [...REVIEW_IMAGES, ...DESC_IMAGES];
+    const VN_AVATARS = [
+      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776446439/png_1_sw7co0.png",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
@@ -2018,22 +2020,22 @@ const VN_AVATARS = [
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_1_na0gkz.webp"
-];
-function getReviewAvatar() {
-  return VN_AVATARS[Math.floor(Math.random() * VN_AVATARS.length)];
-}
-function getReviewAvatarByName(name) {
-  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ee4d2d&color=fff`;
-}
-function getMyAvatar() {
-  return MY_AVATARS[Math.floor(Math.random() * MY_AVATARS.length)];
-}
-// random ảnh
-function getRandomImages(count = 2) {
-  return [...ALL_REVIEW_IMAGES]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, count);
-}
+    ];
+    function getReviewAvatar() {
+      return VN_AVATARS[Math.floor(Math.random() * VN_AVATARS.length)];
+    }
+    function getReviewAvatarByName(name) {
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ee4d2d&color=fff`;
+    }
+    function getMyAvatar() {
+      return MY_AVATARS[Math.floor(Math.random() * MY_AVATARS.length)];
+    }
+    // random ảnh
+    function getRandomImages(count = 2) {
+      return [...ALL_REVIEW_IMAGES]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, count);
+    }
     /* ================= DOM ================= */
     const $ = id => document.getElementById(id);
 
@@ -2070,47 +2072,47 @@ function getRandomImages(count = 2) {
 
     /* ================= SLIDER ================= */
     const slidesEl = $("slides");
-const dotsEl = $("dots");
-const thumbsEl = $("thumbs");
+    const dotsEl = $("dots");
+    const thumbsEl = $("thumbs");
 
-// ===== NEXT / PREV =====
-document.getElementById("nextSlide").onclick = () => {
-  let next = state.currentSlide + 1;
-  if (next >= slidesEl.children.length) next = 0;
-  goSlide(next);
-};
+    // ===== NEXT / PREV =====
+    document.getElementById("nextSlide").onclick = () => {
+      let next = state.currentSlide + 1;
+      if (next >= slidesEl.children.length) next = 0;
+      goSlide(next);
+    };
 
-document.getElementById("prevSlide").onclick = () => {
-  let prev = state.currentSlide - 1;
-  if (prev < 0) prev = slidesEl.children.length - 1;
-  goSlide(prev);
-};
+    document.getElementById("prevSlide").onclick = () => {
+      let prev = state.currentSlide - 1;
+      if (prev < 0) prev = slidesEl.children.length - 1;
+      goSlide(prev);
+    };
 
-// ===== SWIPE MOBILE =====
-let startX = 0;
-let endX = 0;
+    // ===== SWIPE MOBILE =====
+    let startX = 0;
+    let endX = 0;
 
-slidesEl.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
+    slidesEl.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+    });
 
-slidesEl.addEventListener("touchend", e => {
-  endX = e.changedTouches[0].clientX;
+    slidesEl.addEventListener("touchend", e => {
+      endX = e.changedTouches[0].clientX;
 
-  const diff = startX - endX;
+      const diff = startX - endX;
 
-  if (Math.abs(diff) < 50) return;
+      if (Math.abs(diff) < 50) return;
 
-  if (diff > 0) {
-    let next = state.currentSlide + 1;
-    if (next >= slidesEl.children.length) next = 0;
-    goSlide(next);
-  } else {
-    let prev = state.currentSlide - 1;
-    if (prev < 0) prev = slidesEl.children.length - 1;
-    goSlide(prev);
-  }
-});
+      if (diff > 0) {
+        let next = state.currentSlide + 1;
+        if (next >= slidesEl.children.length) next = 0;
+        goSlide(next);
+      } else {
+        let prev = state.currentSlide - 1;
+        if (prev < 0) prev = slidesEl.children.length - 1;
+        goSlide(prev);
+      }
+    });
 
     function buildSlider() {
       buildSliderFromArray(IMAGES);
@@ -2253,10 +2255,7 @@ slidesEl.addEventListener("touchend", e => {
 
 
 
-    document.querySelectorAll("#capacityOptions .option-btn")
-      .forEach(btn => {
-        btn.onclick = () => selectCapacity(btn.dataset.value, btn);
-      });
+
     document.querySelectorAll("#capacityOptions .color-item")
 
       .forEach(item => {
@@ -2307,89 +2306,90 @@ slidesEl.addEventListener("touchend", e => {
       });
 
     /* ================= INIT ================= */
-const reviews = [
-  {
-    name: "Nguyễn Thị Hương",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Mình mua cái này để đi chợ buổi trưa vì trời nóng quá. Lúc đầu nghĩ chỉ chống nắng bình thường thôi, ai ngờ cái quạt thổi mát thật sự luôn 😭. Đi ngoài đường mà không còn cảm giác bí đầu nữa, mồ hôi cũng ít hẳn. Mẹ mình thấy cũng thích nên chắc sẽ mua thêm cái nữa.",
-    images: getRandomImages(2)
-  },
-  {
-    name: "Trần Văn Nam",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Làm công trình ngoài trời nên mình cần cái gì đó chống nắng tốt. Đội cái này thấy khác hẳn mấy loại mũ bình thường, gió thổi trực tiếp nên đỡ mệt hơn nhiều. Pin dùng cũng khá lâu, một ngày làm việc vẫn ổn. Anh em trong đội hỏi mua khá nhiều.",
-    images: getRandomImages(2)
-  },
-  {
-    name: "Lê Thị Mai",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Mình mua vì thấy lạ thôi nhưng dùng rồi thấy rất tiện. Đội lên không bị nặng đầu, thiết kế cũng xinh. Đi du lịch hay đi bộ ngoài trời đều hợp. Quan trọng là không bị nóng như trước nữa nên rất hài lòng.",
-    images: getRandomImages(3)
-  },
-  {
-    name: "Phạm Minh Tuấn",
-    avatar: getReviewAvatar(),
-    stars: 4,
-    content: "Sản phẩm đúng mô tả, giao hàng nhanh. Quạt không quá mạnh nhưng đủ dùng, nhất là khi đi nắng thì cảm giác dễ chịu hơn nhiều. Với mức giá này thì mình thấy hợp lý, đáng để thử.",
-    images: getRandomImages(1)
-  },
-  {
-    name: "Hoàng Thu Trang",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Mình dùng để đi đưa đón con mỗi ngày, trước đây rất sợ nắng vì nóng và đổ mồ hôi. Từ khi dùng cái này thấy dễ chịu hơn hẳn. Quạt chạy êm, không gây tiếng ồn khó chịu. Nói chung là đáng tiền.",
-    images: getRandomImages(2)
-  },
-  {
-    name: "Nguyễn Văn Đức",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Ban đầu mình không kỳ vọng nhiều nhưng dùng rồi thấy ổn hơn tưởng tượng. Đội lâu không bị nặng đầu, gió mát đều. Đi ngoài trời lâu cũng đỡ mệt hơn, rất phù hợp cho người làm việc ngoài nắng.",
-    images: getRandomImages(2)
-  },
-  {
-    name: "Đặng Thị Lan",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Mua cho mẹ dùng mà mẹ khen suốt luôn 😄. Trời nóng mà có quạt nên dễ chịu hơn nhiều. Chất liệu cũng khá ổn, không bị ọp ẹp như mình lo ban đầu.",
-    images: getRandomImages(2)
-  },
-  {
-    name: "Bùi Quang Huy",
-    avatar: getReviewAvatar(),
-    stars: 4,
-    content: "Dùng vài ngày thấy khá ok, quạt chạy ổn định, pin cũng không tụt nhanh. Nếu cải thiện thêm lực gió chút nữa thì hoàn hảo, nhưng hiện tại vẫn rất đáng dùng.",
-    images: getRandomImages(1)
-  },
-  {
-    name: "Trịnh Thị Ngọc",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Đi du lịch mang theo cực tiện, nhất là lúc phải đi bộ ngoài trời lâu. Đội vào thấy mát ngay chứ không bị nóng như trước nữa. Bạn bè đi cùng cũng hỏi xin link mua.",
-    images: getRandomImages(3)
-  },
-  {
-    name: "Phan Quốc Tuấn",
-    avatar: getReviewAvatar(),
-    stars: 5,
-    content: "Mình làm shipper nên phải chạy ngoài đường nhiều. Dùng cái này thấy đỡ nóng rõ rệt, đặc biệt là buổi trưa. Pin dùng được khá lâu, đủ cho một ca làm việc. Nói chung rất đáng tiền.",
-    images: getRandomImages(2)
-  }
-];
-let shuffled = [...MY_AVATARS].sort(() => Math.random() - 0.5);
+    let reviews = [
+      {
+        name: "Nguyễn Thị Hương",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Mình mua cái này để đi chợ buổi trưa vì trời nóng quá. Lúc đầu nghĩ chỉ chống nắng bình thường thôi, ai ngờ cái quạt thổi mát thật sự luôn 😭. Đi ngoài đường mà không còn cảm giác bí đầu nữa, mồ hôi cũng ít hẳn. Mẹ mình thấy cũng thích nên chắc sẽ mua thêm cái nữa.",
+        images: getRandomImages(2)
+      },
+      {
+        name: "Trần Văn Nam",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Làm công trình ngoài trời nên mình cần cái gì đó chống nắng tốt. Đội cái này thấy khác hẳn mấy loại mũ bình thường, gió thổi trực tiếp nên đỡ mệt hơn nhiều. Pin dùng cũng khá lâu, một ngày làm việc vẫn ổn. Anh em trong đội hỏi mua khá nhiều.",
+        images: getRandomImages(2)
+      },
+      {
+        name: "Lê Thị Mai",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Mình mua vì thấy lạ thôi nhưng dùng rồi thấy rất tiện. Đội lên không bị nặng đầu, thiết kế cũng xinh. Đi du lịch hay đi bộ ngoài trời đều hợp. Quan trọng là không bị nóng như trước nữa nên rất hài lòng.",
+        images: getRandomImages(3)
+      },
+      {
+        name: "Phạm Minh Tuấn",
+        avatar: getReviewAvatar(),
+        stars: 4,
+        content: "Sản phẩm đúng mô tả, giao hàng nhanh. Quạt không quá mạnh nhưng đủ dùng, nhất là khi đi nắng thì cảm giác dễ chịu hơn nhiều. Với mức giá này thì mình thấy hợp lý, đáng để thử.",
+        images: getRandomImages(1)
+      },
+      {
+        name: "Hoàng Thu Trang",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Mình dùng để đi đưa đón con mỗi ngày, trước đây rất sợ nắng vì nóng và đổ mồ hôi. Từ khi dùng cái này thấy dễ chịu hơn hẳn. Quạt chạy êm, không gây tiếng ồn khó chịu. Nói chung là đáng tiền.",
+        images: getRandomImages(2)
+      },
+      {
+        name: "Nguyễn Văn Đức",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Ban đầu mình không kỳ vọng nhiều nhưng dùng rồi thấy ổn hơn tưởng tượng. Đội lâu không bị nặng đầu, gió mát đều. Đi ngoài trời lâu cũng đỡ mệt hơn, rất phù hợp cho người làm việc ngoài nắng.",
+        images: getRandomImages(2)
+      },
+      {
+        name: "Đặng Thị Lan",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Mua cho mẹ dùng mà mẹ khen suốt luôn 😄. Trời nóng mà có quạt nên dễ chịu hơn nhiều. Chất liệu cũng khá ổn, không bị ọp ẹp như mình lo ban đầu.",
+        images: getRandomImages(2)
+      },
+      {
+        name: "Bùi Quang Huy",
+        avatar: getReviewAvatar(),
+        stars: 4,
+        content: "Dùng vài ngày thấy khá ok, quạt chạy ổn định, pin cũng không tụt nhanh. Nếu cải thiện thêm lực gió chút nữa thì hoàn hảo, nhưng hiện tại vẫn rất đáng dùng.",
+        images: getRandomImages(1)
+      },
+      {
+        name: "Trịnh Thị Ngọc",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Đi du lịch mang theo cực tiện, nhất là lúc phải đi bộ ngoài trời lâu. Đội vào thấy mát ngay chứ không bị nóng như trước nữa. Bạn bè đi cùng cũng hỏi xin link mua.",
+        images: getRandomImages(3)
+      },
+      {
+        name: "Phan Quốc Tuấn",
+        avatar: getReviewAvatar(),
+        stars: 5,
+        content: "Mình làm shipper nên phải chạy ngoài đường nhiều. Dùng cái này thấy đỡ nóng rõ rệt, đặc biệt là buổi trưa. Pin dùng được khá lâu, đủ cho một ca làm việc. Nói chung rất đáng tiền.",
+        images: getRandomImages(2)
+      }
+    ];
+    let shuffled = [...MY_AVATARS].sort(() => Math.random() - 0.5);
 
-reviews = reviews.map((r, i) => ({
-  ...r,
-  avatar: shuffled[i % shuffled.length]
-}));
-function renderReviews() {
-  const container = document.getElementById("reviewList");
+    reviews = reviews.map((r, i) => ({
+      ...r,
+      avatar: shuffled[i % shuffled.length]
+    }));
+    function renderReviews() {
+      const container = $("reviewList");
 
-  container.innerHTML = reviews.map(r => `
+      container.innerHTML = reviews.map(r => `
     <div class="review-item">
+      
       <div class="review-top">
         <img class="review-avatar" src="${r.avatar}">
         <div>
@@ -2400,15 +2400,18 @@ function renderReviews() {
 
       <div class="review-content">${r.content}</div>
 
-      <div class="review-images">
-        ${r.images.map(img => `<img class="review-img" src="${img}">`).join("")}
-      </div>
+      ${r.images.length ? `
+        <div class="review-images">
+          ${r.images.map(img => `<img class="review-img" src="${img}">`).join("")}
+        </div>
+      ` : ""}
+
     </div>
   `).join("");
-}
+    }
     reviews.sort(() => Math.random() - 0.5);
     renderReviews();
-    
+
     window.onload = () => {
       renderMainQty();
       buildSlider();
@@ -2475,45 +2478,45 @@ function renderReviews() {
     startCountdown(15 * 60);
     document.getElementById("submitOrder").onclick = () => {
       const nameEl = $("fullName");
-const phoneEl = $("phone");
-const addressEl = $("address");
+      const phoneEl = $("phone");
+      const addressEl = $("address");
 
-const errName = $("errName");
-const errPhone = $("errPhone");
-const errAddress = $("errAddress");
+      const errName = $("errName");
+      const errPhone = $("errPhone");
+      const errAddress = $("errAddress");
 
-// reset
-[nameEl, phoneEl, addressEl].forEach(i => i.classList.remove("input-error"));
-[errName, errPhone, errAddress].forEach(e => e.innerText = "");
+      // reset
+      [nameEl, phoneEl, addressEl].forEach(i => i.classList.remove("input-error"));
+      [errName, errPhone, errAddress].forEach(e => e.innerText = "");
 
-const name = nameEl.value.trim();
-const phone = phoneEl.value.trim();
-const addressInput = addressEl.value.trim();
+      const name = nameEl.value.trim();
+      const phone = phoneEl.value.trim();
+      const addressInput = addressEl.value.trim();
 
-// ===== TÊN =====
-if (!name || name.length < 2 || /\d/.test(name)) {
-  errName.innerText = "Vui lòng nhập tên hợp lệ";
-  nameEl.classList.add("input-error");
-  nameEl.focus();
-  return;
-}
+      // ===== TÊN =====
+      if (!name || name.length < 2 || /\d/.test(name)) {
+        errName.innerText = "Vui lòng nhập tên hợp lệ";
+        nameEl.classList.add("input-error");
+        nameEl.focus();
+        return;
+      }
 
-// ===== SĐT =====
-const phoneRegex = /^(0|\+84)[0-9]{9}$/;
-if (!phoneRegex.test(phone)) {
-  errPhone.innerText = "Số điện thoại không đúng";
-  phoneEl.classList.add("input-error");
-  phoneEl.focus();
-  return;
-}
+      // ===== SĐT =====
+      const phoneRegex = /^(0|\+84)[0-9]{9}$/;
+      if (!phoneRegex.test(phone)) {
+        errPhone.innerText = "Số điện thoại không đúng";
+        phoneEl.classList.add("input-error");
+        phoneEl.focus();
+        return;
+      }
 
-// ===== ĐỊA CHỈ =====
-if (!addressInput || addressInput.length < 5) {
-  errAddress.innerText = "Nhập địa chỉ đầy đủ";
-  addressEl.classList.add("input-error");
-  addressEl.focus();
-  return;
-}
+      // ===== ĐỊA CHỈ =====
+      if (!addressInput || addressInput.length < 5) {
+        errAddress.innerText = "Nhập địa chỉ đầy đủ";
+        addressEl.classList.add("input-error");
+        addressEl.focus();
+        return;
+      }
 
       // ===== OK thì submit =====
 
@@ -2563,6 +2566,10 @@ if (!addressInput || addressInput.length < 5) {
         closeModal();
       }, 500);
     };
+    document.addEventListener("DOMContentLoaded", () => {
+      buildSlider();
+      renderReviews();
+    });
   </script>
 
 </body>
