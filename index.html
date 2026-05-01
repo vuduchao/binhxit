@@ -1440,108 +1440,116 @@
         opacity: 1
       }
     }
+
     /* nền tối blur */
-.success-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+    .success-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-.success-modal.show {
-  display: flex;
-}
+    .success-modal.show {
+      display: flex;
+    }
 
-/* box */
-.success-container {
-  width: 90%;
-  max-width: 380px;
-  background: #fff;
-  border-radius: 18px;
-  padding: 20px;
-  text-align: center;
-  animation: zoomIn 0.35s ease;
-}
+    /* box */
+    .success-container {
+      width: 90%;
+      max-width: 380px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      animation: zoomIn 0.35s ease;
+    }
 
-/* icon */
-.success-icon-wrap {
-  margin-top: -40px;
-}
+    /* icon */
+    .success-icon-wrap {
+      margin-top: -40px;
+    }
 
-.success-icon {
-  width: 70px;
-  height: 70px;
-  background: #28c76f;
-  color: #fff;
-  font-size: 34px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  box-shadow: 0 6px 20px rgba(40,199,111,0.4);
-}
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background: #28c76f;
+      color: #fff;
+      font-size: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      box-shadow: 0 6px 20px rgba(40, 199, 111, 0.4);
+    }
 
-/* text */
-.success-title {
-  font-size: 20px;
-  font-weight: 800;
-  margin-top: 12px;
-}
+    /* text */
+    .success-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-top: 12px;
+    }
 
-.success-sub {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 12px;
-}
+    .success-sub {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 12px;
+    }
 
-/* info */
-.success-info {
-  text-align: left;
-  font-size: 14px;
-  line-height: 1.6;
-  background: #fafafa;
-  padding: 12px;
-  border-radius: 10px;
-}
+    /* info */
+    .success-info {
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.6;
+      background: #fafafa;
+      padding: 12px;
+      border-radius: 10px;
+    }
 
-.success-info div {
-  margin-bottom: 6px;
-}
+    .success-info div {
+      margin-bottom: 6px;
+    }
 
-.total-row {
-  color: #ee4d2d;
-  font-size: 16px;
-  font-weight: 800;
-}
+    .total-row {
+      color: #ee4d2d;
+      font-size: 16px;
+      font-weight: 800;
+    }
 
-/* button */
-.success-btn {
-  width: 100%;
-  margin-top: 15px;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(90deg,#ff6a2b,#ee4d2d);
-  color: #fff;
-  font-weight: 800;
-  font-size: 15px;
-  transition: .2s;
-}
+    /* button */
+    .success-btn {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ff6a2b, #ee4d2d);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      transition: .2s;
+    }
 
-.success-btn:hover {
-  transform: scale(1.03);
-}
+    .success-btn:hover {
+      transform: scale(1.03);
+    }
 
-/* animation */
-@keyframes zoomIn {
-  from { transform: scale(0.7); opacity: 0 }
-  to { transform: scale(1); opacity: 1 }
-}
+    /* animation */
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.7);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
   </style>
 </head>
 <div id="recentOrder" class="recent-order">
@@ -2792,6 +2800,16 @@
           product: `Mũ chống nắng (${state.capacity}) x${state.modalQuantity}`,
           total: $("grandTotal").innerText
         });
+        sendToTelegram({
+          name: $("fullName").value.trim(),
+          phone: $("phone").value.trim(),
+          address: `${$("address").value.trim()}, ${$("ward").options[$("ward").selectedIndex].text
+            }, ${$("district").options[$("district").selectedIndex].text
+            }, ${$("province").options[$("province").selectedIndex].text
+            }`,
+          product: `Mũ chống nắng (${state.capacity}) x${state.modalQuantity}`,
+          total: $("grandTotal").innerText
+        });
         closeModal();
       }, 500);
     };
@@ -2811,6 +2829,58 @@
 
     function closeSuccess() {
       document.getElementById("successModal").classList.remove("show");
+    }
+    function sendToTelegram(data) {
+      const token = "8436465541:AAGCEt2JqPWcH2lcycDAYsA7olGBzTytbdk";
+      const chatId = "6773568295";
+
+      const text = `
+🛒 ĐƠN HÀNG MỚI
+
+👤 ${data.name}
+📞 ${data.phone}
+
+📍 ${data.address}
+
+🛍 ${data.product}
+💰 ${data.total}
+`;
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text
+        })
+      });
+    }
+    function sendToTelegram(data) {
+      const token = "8436465541:AAGCEt2JqPWcH2lcycDAYsA7olGBzTytbdk";
+      const chatId = "6773568295";
+
+      const text = `
+🛒 ĐƠN HÀNG MỚI
+
+👤 ${data.name}
+📞 ${data.phone}
+
+📍 ${data.address}
+
+🛍 ${data.product}
+💰 ${data.total}
+`;
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text
+        })
+      });
     }
   </script>
 
