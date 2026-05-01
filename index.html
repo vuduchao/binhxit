@@ -1385,6 +1385,163 @@
       font-size: 12px;
       margin: -6px 0 8px;
     }
+
+    .success-box {
+      text-align: center;
+      border-radius: 16px;
+      animation: scaleIn 0.3s ease;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      margin: 10px auto;
+      border-radius: 50%;
+      background: #28c76f;
+      color: #fff;
+      font-size: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+
+    .success-info {
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .btn-ok {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #ee4d2d;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+    /* nền tối blur */
+.success-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.success-modal.show {
+  display: flex;
+}
+
+/* box */
+.success-container {
+  width: 90%;
+  max-width: 380px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  animation: zoomIn 0.35s ease;
+}
+
+/* icon */
+.success-icon-wrap {
+  margin-top: -40px;
+}
+
+.success-icon {
+  width: 70px;
+  height: 70px;
+  background: #28c76f;
+  color: #fff;
+  font-size: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 6px 20px rgba(40,199,111,0.4);
+}
+
+/* text */
+.success-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.success-sub {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+/* info */
+.success-info {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.success-info div {
+  margin-bottom: 6px;
+}
+
+.total-row {
+  color: #ee4d2d;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* button */
+.success-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg,#ff6a2b,#ee4d2d);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  transition: .2s;
+}
+
+.success-btn:hover {
+  transform: scale(1.03);
+}
+
+/* animation */
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0 }
+  to { transform: scale(1); opacity: 1 }
+}
   </style>
 </head>
 <div id="recentOrder" class="recent-order">
@@ -1843,15 +2000,18 @@
           <select id="province">
             <option value="">-- Chọn Tỉnh --</option>
           </select>
+          <div id="errProvince" class="error-text"></div>
+
 
           <select id="district" disabled>
             <option value="">-- Chọn Huyện --</option>
           </select>
+          <div id="errDistrict" class="error-text"></div>
 
           <select id="ward" disabled>
             <option value="">-- Chọn Xã --</option>
           </select>
-
+          <div id="errWard" class="error-text"></div>
 
           <input id="address" placeholder="Địa chỉ chi tiết (số nhà, tên đường) *">
           <div id="errAddress" class="error-text"></div>
@@ -2487,7 +2647,9 @@
       const nameEl = $("fullName");
       const phoneEl = $("phone");
       const addressEl = $("address");
-
+      const province = document.getElementById("province");
+      const district = document.getElementById("district");
+      const ward = document.getElementById("ward");
       const errName = $("errName");
       const errPhone = $("errPhone");
       const errAddress = $("errAddress");
@@ -2516,7 +2678,42 @@
         phoneEl.focus();
         return;
       }
+      // xoá lỗi cũ
+      [province, district, ward].forEach(el => {
+        el.classList.remove("input-error");
+      });
 
+      // ===== PROVINCE =====
+      if (!province.value) {
+        $("errProvince").innerText = "Vui lòng chọn Tỉnh/Thành";
+        province.classList.add("input-error");
+        isValid = false;
+      }
+
+      // ===== DISTRICT =====
+      if (!district.value) {
+        $("errDistrict").innerText = "Vui lòng chọn Quận/Huyện";
+        district.classList.add("input-error");
+        isValid = false;
+      }
+
+      // ===== WARD =====
+      if (!ward.value) {
+        $("errWard").innerText = "Vui lòng chọn Xã/Phường";
+        ward.classList.add("input-error");
+        isValid = false;
+      }
+
+      ["province", "district", "ward"].forEach(id => {
+        $(id).addEventListener("change", () => {
+          $(id).classList.remove("input-error");
+          $("err" + id.charAt(0).toUpperCase() + id.slice(1)).innerText = "";
+        });
+      });
+      province.addEventListener("change", () => {
+        district.value = "";
+        ward.value = "";
+      });
       // ===== ĐỊA CHỈ =====
       if (!addressInput || addressInput.length < 5) {
         errAddress.innerText = "Nhập địa chỉ đầy đủ";
@@ -2569,7 +2766,32 @@
       setTimeout(() => form.remove(), 1000);
 
       setTimeout(() => {
-        alert("✅ Đặt hàng thành công!");
+        const name = $("fullName");
+        const phone = $("phone");
+        const address = $("address");
+
+        const province = $("province");
+        const district = $("district");
+        const ward = $("ward");
+
+        // lấy text địa chỉ
+        const provinceText = province.options[province.selectedIndex].text;
+        const districtText = district.options[district.selectedIndex].text;
+        const wardText = ward.options[ward.selectedIndex].text;
+
+        const fullAddress = `${address.value}, ${wardText}, ${districtText}, ${provinceText}`;
+
+        // đóng modal đặt hàng
+        $("orderModal").classList.remove("show");
+
+        // 🔥 FIX CHUẨN Ở ĐÂY
+        showSuccessModal({
+          name: name.value.trim(),   // ✔ FIX CHÍNH
+          phone: phone.value.trim(), // ✔ FIX CHÍNH
+          address: fullAddress,
+          product: `Mũ chống nắng (${state.capacity}) x${state.modalQuantity}`,
+          total: $("grandTotal").innerText
+        });
         closeModal();
       }, 500);
     };
@@ -2577,8 +2799,48 @@
       buildSlider();
       renderReviews();
     });
+    function showSuccessModal(data) {
+      document.getElementById("sName").innerText = data.name;
+      document.getElementById("sPhone").innerText = data.phone;
+      document.getElementById("sAddress").innerText = data.address;
+      document.getElementById("sProduct").innerText = data.product;
+      document.getElementById("sTotal").innerText = data.total;
+
+      document.getElementById("successModal").classList.add("show");
+    }
+
+    function closeSuccess() {
+      document.getElementById("successModal").classList.remove("show");
+    }
   </script>
 
 </body>
+<div class="modal success-modal" id="successModal">
+  <div class="success-container">
+
+    <div class="success-icon-wrap">
+      <div class="success-icon">✔</div>
+    </div>
+
+    <div class="success-title">Đặt hàng thành công</div>
+
+    <div class="success-sub">
+      Cảm ơn bạn! Đơn hàng đang được xử lý 🚚
+    </div>
+
+    <div class="success-info">
+      <div><span>👤 Họ tên:</span> <b id="sName"></b></div>
+      <div><span>📞 SĐT:</span> <b id="sPhone"></b></div>
+      <div><span>📍 Địa chỉ:</span> <b id="sAddress"></b></div>
+      <div><span>🛒 Sản phẩm:</span> <b id="sProduct"></b></div>
+      <div class="total-row">
+        <span>💰 Tổng:</span> <b id="sTotal"></b>
+      </div>
+    </div>
+
+    <button class="success-btn" onclick="closeSuccess()">Xong</button>
+
+  </div>
+</div>
 
 </html>
