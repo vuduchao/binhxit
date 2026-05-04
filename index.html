@@ -103,16 +103,18 @@
       overflow-x: auto;
     }
 
-    .thumb {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
-      opacity: 0.6;
-      cursor: pointer;
-    }
-
+   .thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  opacity: 0.7;
+}
+.thumbs {
+  gap: 6px;
+  padding: 8px;
+}
     .thumb.active {
-      border: 2px solid #ee4d2d;
+      border: 2px solid #ff6a00;
       opacity: 1;
     }
 
@@ -140,7 +142,7 @@
     }
 
     .price {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 34px;
       font-weight: 800;
     }
@@ -160,7 +162,7 @@
 
     .discount {
       background: #ffece8;
-      color: #ee4d2d;
+      color: #ff6a00;
       padding: 4px 6px;
       border-radius: 6px;
       font-weight: 700;
@@ -215,7 +217,7 @@
     }
 
     .capacity-tag {
-      background: #ee4d2d;
+      background: #ff6a00;
       color: #fff;
       padding: 4px 8px;
       border-radius: 999px;
@@ -285,9 +287,9 @@
     }
 
     .option-btn.active {
-      border-color: #ee4d2d;
+      border-color: #ff6a00;
       background: #fff5f2;
-      color: #ee4d2d;
+      color: #ff6a00;
       font-weight: 700;
     }
 
@@ -298,7 +300,7 @@
       top: 6px;
       right: 8px;
       font-weight: 800;
-      color: #ee4d2d;
+      color: #ff6a00;
     }
 
     /* ===== OPTION ===== */
@@ -326,9 +328,9 @@
 
 
     .option-btn.active {
-      border-color: #ee4d2d;
+      border-color: #ff6a00;
       background: #fff5f2;
-      color: #ee4d2d;
+      color: #ff6a00;
       font-weight: 700;
     }
 
@@ -339,7 +341,7 @@
       top: 6px;
       right: 8px;
       font-weight: 800;
-      color: #ee4d2d;
+      color: #ff6a00;
     }
 
 
@@ -361,11 +363,11 @@
       border: none;
       outline: none;
 
-      background: linear-gradient(90deg, #ff6a2b, #ee4d2d);
+     background: linear-gradient(90deg, #ff8a3d, #ff6a00);
       color: #fff;
 
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
 
       display: flex;
       align-items: center;
@@ -374,6 +376,12 @@
       transition: all 0.2s ease;
 
       box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
+        letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  text-shadow: 
+    0 1px 2px rgba(0,0,0,0.2),
+    0 0 6px rgba(255,255,255,0.3);
     }
 
     /* click */
@@ -410,23 +418,17 @@
     .btn-buy.pulse {
       animation: pulseSoft 1.6s ease-in-out infinite;
     }
-
-    @keyframes pulseSoft {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
-      }
-
-      50% {
-        transform: scale(1.04);
-        box-shadow: 0 8px 20px rgba(238, 77, 45, 0.35);
-      }
-
-      100% {
-        transform: scale(1);
-        box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
-      }
-    }
+@keyframes pulseSoft {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02); /* 🔥 giảm lại */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
     /* ===== MODAL ===== */
 
@@ -458,7 +460,7 @@
     }
 
     .cart-item-price {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 18px;
       font-weight: 800;
     }
@@ -482,7 +484,7 @@
       font-size: 16px;
       font-weight: 800;
 
-      background: linear-gradient(90deg, #ff7337, #ee4d2d);
+      background: linear-gradient(90deg, #ff7337, #ff6a00);
       box-shadow: 0 4px 10px rgba(238, 77, 45, 0.3);
     }
 
@@ -532,7 +534,7 @@
     .submit-btn {
       width: 100%;
       padding: 16px;
-      background: #ee4d2d;
+      background: #ff6a00;
       color: #fff;
       border: none;
       border-radius: 14px;
@@ -556,7 +558,7 @@
     }
 
     .rating {
-      color: #ee4d2d;
+      color: #ff6a00;
     }
 
     .review-item {
@@ -590,7 +592,7 @@
     }
 
     .review-stars {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 14px;
     }
 
@@ -699,7 +701,7 @@
     }
 
     .shop-stat-value {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-weight: 700;
     }
 
@@ -793,7 +795,7 @@
     }
 
     .cart-item-price {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-weight: 800;
       margin-top: 5px;
     }
@@ -813,7 +815,7 @@
     .order-totals-row.grand {
       font-size: 16px;
       font-weight: 800;
-      color: #ee4d2d;
+      color: #ff6a00;
     }
 
     .freeship {
@@ -833,7 +835,7 @@
     .submit-btn {
       width: 100%;
       padding: 16px;
-      background: #ee4d2d;
+      background: #ff6a00;
       color: #fff;
       border: none;
       border-radius: 12px;
@@ -889,7 +891,7 @@
 
     .btn-main {
       flex: 1;
-      background: #ee4d2d;
+      background: #ff6a00;
       color: #fff;
       padding: 14px;
       border-radius: 12px;
@@ -899,7 +901,7 @@
     .btn-outline {
       flex: 1;
       background: #fff1ed;
-      color: #ee4d2d;
+      color: #ff6a00;
       border: 1px solid #ffd1c4;
       border-radius: 12px;
       font-weight: 800;
@@ -1052,7 +1054,7 @@
       width: 50px;
       height: 34px;
 
-      border: 1.5px solid #ee4d2d;
+      border: 1.5px solid #ff6a00;
       border-radius: 8px;
 
       text-align: center;
@@ -1093,7 +1095,7 @@
 
     /* nút chính nổi bật */
     .btn-main.strong {
-      background: linear-gradient(90deg, #ff7337, #ee4d2d);
+      background: linear-gradient(90deg, #ff7337, #ff6a00);
       box-shadow: 0 4px 12px rgba(238, 77, 45, 0.4);
       animation: pulse 1.2s infinite;
     }
@@ -1185,9 +1187,9 @@
     }
 
     .color-item.active {
-      border-color: #ee4d2d;
+      border-color: #ff6a00;
       background: #fff5f2;
-      color: #ee4d2d;
+      color: #ff6a00;
       font-weight: 700;
     }
 
@@ -1241,7 +1243,7 @@
       border-radius: 8px;
       font-size: 12px;
       font-weight: 600;
-      color: #ee4d2d;
+      color: #ff6a00;
     }
 
     /* ===== GIÁ TRONG MODAL ===== */
@@ -1253,7 +1255,7 @@
     }
 
     .cart-price {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 20px;
       font-weight: 800;
     }
@@ -1266,7 +1268,7 @@
 
     .cart-discount {
       background: #ffece8;
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 12px;
       font-weight: 700;
       padding: 2px 6px;
@@ -1331,7 +1333,7 @@
     .recent-order {
       position: fixed;
       bottom: 80px;
-      left: 12px;
+      right: 12px;
 
       display: flex;
       align-items: center;
@@ -1399,12 +1401,12 @@
 
     /* ===== ERROR STYLE ===== */
     .input-error {
-      border: 1.5px solid #ee4d2d !important;
+      border: 1.5px solid #ff6a00 !important;
       background: #fff5f2;
     }
 
     .error-text {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 12px;
       margin: -6px 0 8px;
     }
@@ -1447,7 +1449,7 @@
       margin-top: 15px;
       border: none;
       border-radius: 12px;
-      background: #ee4d2d;
+      background: #ff6a00;
       color: #fff;
       font-weight: 800;
     }
@@ -1538,7 +1540,7 @@
     }
 
     .total-row {
-      color: #ee4d2d;
+      color: #ff6a00;
       font-size: 16px;
       font-weight: 800;
     }
@@ -1550,7 +1552,7 @@
       padding: 14px;
       border: none;
       border-radius: 12px;
-      background: linear-gradient(90deg, #ff6a2b, #ee4d2d);
+      background: linear-gradient(90deg, #ff6a2b, #ff6a00);
       color: #fff;
       font-weight: 800;
       font-size: 15px;
@@ -2952,7 +2954,7 @@
       <div><span>📍 Địa chỉ:</span> <b id="sAddress"></b></div>
       <div><span>🛒 Sản phẩm:</span> <b id="sProduct"></b></div>
       <div class="total-row">
-        <span>💰 Tổng:</span> <b id="sTotal"></b>
+        <span>💰 Tổng tiền p:</span> <b id="sTotal"></b>
       </div>
     </div>
 
