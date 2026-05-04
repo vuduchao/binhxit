@@ -7,7 +7,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -128,8 +128,8 @@
 
     /* ===== SECTION ===== */
     .section {
-      padding: 14px;
-      border-top: 10px solid #f5f5f5;
+      padding: 5px 10px;
+      border-top: 1px solid #f5f5f5;
     }
 
     /* ===== PRICE ===== */
@@ -174,10 +174,11 @@
       line-height: 1.4;
     }
 
-    .sold {
-      margin-top: 5px;
-      font-size: 14px;
+    .sold-inline {
+      font-size: 13px;
       color: #666;
+      margin-left: auto;
+      /* đẩy sang phải */
     }
 
     /* ===== OPTION ===== */
@@ -1615,13 +1616,14 @@
         <div class="price">199.000đ</div>
         <div class="old-price">250.000đ</div>
         <div class="discount">-50%</div>
+        <div class="sold-inline">Đã bán 12.4k+</div>
+
       </div>
 
       <div class="title">
         MŨ CHỐNG NẮNG TÍCH HỢP QUẠT – CHE NẮNG MÁT MẺ, KHÔNG LO NẮNG NÓNG
       </div>
 
-      <div class="sold">Đã bán 12.4k+</div>
 
     </section>
     <!-- DUNG TÍCH -->
@@ -1661,7 +1663,7 @@
 
     </section>
     <!-- SỐ LƯỢNG -->
-    <section class="section">
+    <!-- <section class="section">
 
       <div class="option-title">Số lượng:</div>
 
@@ -1678,7 +1680,7 @@
       </div>
 
 
-    </section>
+    </section> -->
     <section class="section product-desc">
 
       <div class="desc-box">
@@ -2238,9 +2240,9 @@
 
     /* ================= UI ================= */
 
-    function renderMainQty() {
-      $("quantity").value = state.quantity;
-    }
+    // function renderMainQty() {
+    //   $("quantity").value = state.quantity;
+    // }
 
     function renderModalQty() {
       $("modalQty").value = state.modalQuantity;
@@ -2325,17 +2327,17 @@
 
     /* ================= ACTION ================= */
 
-    function increaseQty() {
-      state.quantity++;
-      renderMainQty();
-    }
+    // function increaseQty() {
+    //   state.quantity++;
+    //   renderMainQty();
+    // }
 
-    function decreaseQty() {
-      if (state.quantity > 1) {
-        state.quantity--;
-        renderMainQty();
-      }
-    }
+    // function decreaseQty() {
+    //   if (state.quantity > 1) {
+    //     state.quantity--;
+    //     renderMainQty();
+    //   }
+    // }
 
     function increaseModalQty() {
       state.modalQuantity++;
@@ -2369,7 +2371,7 @@
       // sync toàn bộ state
       state.modalQuantity = state.quantity;
 
-      renderMainQty();
+      // renderMainQty();
       renderModalQty();
       renderPrice();
 
@@ -2439,8 +2441,8 @@
 
     /* ================= EVENTS ================= */
 
-    $("plus").onclick = increaseQty;
-    $("minus").onclick = decreaseQty;
+    // $("plus").onclick = increaseQty;
+    // $("minus").onclick = decreaseQty;
 
     $("modalPlus").onclick = increaseModalQty;
     $("modalMinus").onclick = decreaseModalQty;
@@ -2607,7 +2609,7 @@
     renderReviews();
 
     window.onload = () => {
-      renderMainQty();
+      // renderMainQty();
       buildSlider();
       updateViewing();
 
@@ -2624,7 +2626,7 @@
     document.getElementById("buyNow").onclick = () => {
       if (isOpening) return;
       isOpening = true;
-        fbq('track', 'AddToCart'); // 🔥 thêm dòng này
+      fbq('track', 'AddToCart'); // 🔥 thêm dòng này
 
       openModal();
       bottomBar.style.display = "none";
@@ -2830,11 +2832,11 @@
           product: `Mũ chống nắng (${state.capacity}) x${state.modalQuantity}`,
           total: $("grandTotal").innerText
         });
-         // =====🔥 PIXEL PURCHASE (THÊM ĐOẠN NÀY) =====
-  fbq('track', 'Purchase', {
-    value: PRICE * state.modalQuantity,
-    currency: 'VND'
-  });
+        // =====🔥 PIXEL PURCHASE (THÊM ĐOẠN NÀY) =====
+        fbq('track', 'Purchase', {
+          value: PRICE * state.modalQuantity,
+          currency: 'VND'
+        });
         closeModal();
       }, 500);
     };
