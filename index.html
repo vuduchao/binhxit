@@ -72,12 +72,6 @@
       position: relative
     }
 
-    .slides {
-      display: flex;
-      transition: transform .25s ease;
-      will-change: transform;
-    }
-
     .slide {
       min-width: 100%
     }
@@ -380,7 +374,7 @@
       align-items: center;
       justify-content: center;
 
-      transition: all 0.2s ease;
+      transition: transform  0.2s ease;
 
       box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
       letter-spacing: 0.5px;
@@ -442,15 +436,6 @@
     }
 
     /* ===== MODAL ===== */
-
-    .order-summary {
-      background: #fff;
-      border-radius: 14px;
-      padding: 12px;
-
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      border: none;
-    }
 
     .order-summary-title {
       font-size: 15px;
@@ -754,6 +739,7 @@
 
     /* ORDER BOX */
     .order-summary {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       background: #fff7f5;
       border: 1px solid #ffd7cd;
       border-radius: 12px;
@@ -1159,7 +1145,6 @@
       font-size: 13px;
       z-index: 9999;
 
-      backdrop-filter: blur(6px);
     }
 
     .color-list {
@@ -1287,7 +1272,9 @@
 
     /* slides */
     .slides {
-      display: flex;
+        display: flex;
+      transition: transform .25s ease;
+      will-change: transform;
       transition: .3s;
     }
 
@@ -1470,7 +1457,6 @@
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(6px);
       justify-content: center;
       align-items: center;
       z-index: 9999;
@@ -1618,7 +1604,21 @@
     <section>
       <div class="slider">
 
-        <div class="slides" id="slides"></div>
+        <div class="slides" id="slides">
+
+  <div class="slide">
+    <img
+      src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776446439/png_1_sw7co0.png"
+      width="800"
+      height="800"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      style="aspect-ratio:1/1;object-fit:cover"
+    >
+  </div>
+
+</div>
 
         <!-- 🔥 ĐẶT Ở ĐÂY (KHÔNG bị xoá) -->
         <button class="nav-btn prev" id="prevSlide">‹</button>
@@ -2135,7 +2135,7 @@
     }
 
     // chạy lặp
-    setInterval(showRecentOrder, 11000);
+    setInterval(showRecentOrder, 15000);
     const state = {
       quantity: 1,
       modalQuantity: 1,
@@ -2221,8 +2221,8 @@
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_5_dojkv8.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_3_dtkc9s.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_1_na0gkz.webp"
+      // "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
+      // "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_1_na0gkz.webp"
     ];
     const MY_AVATARS = [
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/475957823_1791718101401545_4591790055981185455_n_gacpxt.jpg",
@@ -2574,7 +2574,7 @@
         avatar: getReviewAvatar(),
         stars: 5,
         content: "Mình mua vì thấy lạ thôi nhưng dùng rồi thấy rất tiện. Đội lên không bị nặng đầu, thiết kế cũng xinh. Đi du lịch hay đi bộ ngoài trời đều hợp. Quan trọng là không bị nóng như trước nữa nên rất hài lòng.",
-        images: getRandomImages(3)
+        images: getRandomImages(2)
       },
       {
         name: "Phạm Minh Tuấn",
@@ -2616,7 +2616,7 @@
         avatar: getReviewAvatar(),
         stars: 5,
         content: "Đi du lịch mang theo cực tiện, nhất là lúc phải đi bộ ngoài trời lâu. Đội vào thấy mát ngay chứ không bị nóng như trước nữa. Bạn bè đi cùng cũng hỏi xin link mua.",
-        images: getRandomImages(3)
+        images: getRandomImages(2)
       },
       {
         name: "Phan Quốc Tuấn",
@@ -2667,7 +2667,7 @@ decoding="async" src="${img}">`).join("")}
 
     window.onload = () => {
       // renderMainQty();
-      buildSlider();
+      setTimeout(buildSlider, 300);
       updateViewing();
 
       const first = document.querySelector("#capacityOptions .option-btn");
@@ -2898,7 +2898,7 @@ decoding="async" src="${img}">`).join("")}
       }, 500);
     };
     document.addEventListener("DOMContentLoaded", () => {
-      buildSlider();
+      setTimeout(buildSlider, 300);
       setTimeout(() => {
         renderReviews();
       }, 1200);
