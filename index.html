@@ -5,31 +5,55 @@
   <!-- Meta Pixel Code -->
   <script defer>
     !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
+      if (f.fbq) return;
+      n = f.fbq = function () {
         n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) :
+          n.queue.push(arguments)
       };
+
       if (!f._fbq) f._fbq = n;
+
       n.push = n;
       n.loaded = !0;
       n.version = '2.0';
       n.queue = [];
+
       t = b.createElement(e);
       t.async = !0;
       t.src = v;
+
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s)
-    }
-      (window, document, 'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
 
     window.addEventListener("load", function () {
-      fbq('init', '1321798096533185');
+
+      fbq('init', '1321798096533185', {
+        external_id: 'landingpage'
+      });
+
+      // PAGE VIEW
       fbq('track', 'PageView');
+
+      // VIEW CONTENT
+      fbq('track', 'ViewContent', {
+        content_name: 'Mũ chống nắng tích hợp quạt',
+        content_type: 'product',
+        content_ids: ['mu-chong-nang-quat'],
+        value: 199000,
+        currency: 'VND'
+      });
+
     });
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1321798096533185&ev=PageView&noscript=1" /></noscript>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1321798096533185&ev=PageView&noscript=1" />
+  </noscript>
   <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +71,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" fetchpriority="high"
     href="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto,w_800/v1776446439/png_1_sw7co0.png">
-    <link rel="preconnect" href="https://res.cloudinary.com">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link rel="preconnect" href="https://connect.facebook.net">
   <style>
     * {
       margin: 0;
@@ -374,7 +399,7 @@
       align-items: center;
       justify-content: center;
 
-      transition: transform  0.2s ease;
+      transition: transform 0.2s ease;
 
       box-shadow: 0 4px 12px rgba(238, 77, 45, 0.25);
       letter-spacing: 0.5px;
@@ -1272,7 +1297,7 @@
 
     /* slides */
     .slides {
-        display: flex;
+      display: flex;
       transition: transform .25s ease;
       will-change: transform;
       transition: .3s;
@@ -1606,19 +1631,14 @@
 
         <div class="slides" id="slides">
 
-  <div class="slide">
-    <img
-      src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776446439/png_1_sw7co0.png"
-      width="800"
-      height="800"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      style="aspect-ratio:1/1;object-fit:cover"
-    >
-  </div>
+          <div class="slide">
+            <img
+              src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776446439/png_1_sw7co0.png"
+              width="800" height="800" fetchpriority="high" loading="eager" decoding="async"
+              style="aspect-ratio:1/1;object-fit:cover">
+          </div>
 
-</div>
+        </div>
 
         <!-- 🔥 ĐẶT Ở ĐÂY (KHÔNG bị xoá) -->
         <button class="nav-btn prev" id="prevSlide">‹</button>
@@ -2205,6 +2225,9 @@
       goSlide(0); // 🔥 reset về slide đầu
     }
     function changeColor(color) {
+      fbq('trackCustom', 'SelectColor', {
+        color: color
+      });
       state.capacity = color;
       state.image = COLOR_IMAGES[color][0];
 
@@ -2213,6 +2236,7 @@
 
       const firstImg = COLOR_IMAGES[color][0];
       slidesEl.children[0].querySelector("img").src = firstImg;
+
     }
     let IMAGES = [
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776446439/png_1_sw7co0.png",
@@ -2221,6 +2245,11 @@
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_5_dojkv8.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
       "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_3_dtkc9s.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778944884/z7833441754311_5ca6b1ea216fb371bf87136a60ec57d2_rbtm15.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778944884/z7833443903312_dc56f895389d3c06ce73a22aac1259b6_mgwl4h.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778944884/z7833443272485_e953c382e3fa0b52fabd004ce421a49f_j8xltf.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778944884/z7833442550295_9105902935e59bc0c739ef5ca7cd177e_c4pcox.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778944884/z7833441754311_5ca6b1ea216fb371bf87136a60ec57d2_rbtm15.jpg"
       // "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
       // "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_1_na0gkz.webp"
     ];
@@ -2230,11 +2259,11 @@
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/62256823_102611207672173_6206475085591609344_n_z7i82z.jpg",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/612063236_2692940047725967_7948547630782815755_n_yigpja.jpg",
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/300378575_392933309638783_2204315263781934987_n_vnkajd.jpg",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1778940763/697792804_2378650495989412_6487712778862112035_n_rplenk.jpg",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1778940763/700063948_4306878382860347_2393247949520611767_n_iw411k.jpg",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1778940763/700144299_986586787083595_2433917186130972033_n_rhuzda.jpg",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1778940763/700361334_122176325564875408_4781772100112103123_n_uurzvf.jpg",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1778940763/700971401_2801110226932275_8848583305359585899_n_blgoyz.jpg"
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778940763/697792804_2378650495989412_6487712778862112035_n_rplenk.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778940763/700063948_4306878382860347_2393247949520611767_n_iw411k.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778940763/700144299_986586787083595_2433917186130972033_n_rhuzda.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778940763/700361334_122176325564875408_4781772100112103123_n_uurzvf.jpg",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1778940763/700971401_2801110226932275_8848583305359585899_n_blgoyz.jpg"
     ];
     // ảnh bạn gửi
     const REVIEW_IMAGES = [
@@ -2681,14 +2710,25 @@ decoding="async" src="${img}">`).join("")}
     let isOpening = false;
 
     document.getElementById("buyNow").onclick = () => {
+
       if (isOpening) return;
+
       isOpening = true;
-      fbq('track', 'AddToCart'); // 🔥 thêm dòng này
+
+      fbq('track', 'InitiateCheckout', {
+        content_name: 'Mũ chống nắng tích hợp quạt',
+        content_type: 'product',
+        content_ids: ['mu-chong-nang-quat'],
+        value: PRICE,
+        currency: 'VND'
+      });
 
       openModal();
+
       bottomBar.style.display = "none";
 
       setTimeout(() => isOpening = false, 400);
+
     };
     // hàm đóng modal (chuẩn)
     function closeModal() {
@@ -2891,8 +2931,19 @@ decoding="async" src="${img}">`).join("")}
         });
         // =====🔥 PIXEL PURCHASE (THÊM ĐOẠN NÀY) =====
         fbq('track', 'Purchase', {
-          value: PRICE * state.modalQuantity,
-          currency: 'VND'
+
+          value: (PRICE * state.modalQuantity) + TAX,
+
+          currency: 'VND',
+
+          content_name: 'Mũ chống nắng tích hợp quạt',
+
+          content_type: 'product',
+
+          content_ids: ['mu-chong-nang-quat'],
+
+          num_items: state.modalQuantity
+
         });
         closeModal();
       }, 500);
