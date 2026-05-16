@@ -3,20 +3,30 @@
 
 <head>
   <!-- Meta Pixel Code -->
-  <script>
+  <script defer>
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
           n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1321798096533185');
-    fbq('track', 'PageView');
+    }
+      (window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+    window.addEventListener("load", function () {
+      fbq('init', '1321798096533185');
+      fbq('track', 'PageView');
+    });
   </script>
   <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1321798096533185&ev=PageView&noscript=1" /></noscript>
@@ -27,14 +37,16 @@
   <meta property="og:description"
     content="Cung cấp các sản phẩm gia dụng thông minh, tiện lợi, giá rẻ. Mua sắm ngay để trải nghiệm sự khác biệt!">
   <meta property="og:image"
-    content="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1777466534/8-meo-trang-tri-giup-cua-hang-quan-ao-hut-khach-am-am_njtmv9.jpg">
+    content="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1777466534/8-meo-trang-tri-giup-cua-hang-quan-ao-hut-khach-am-am_njtmv9.jpg">
   <meta property="og:url" content="https://tenmiencuaban.com">
   <meta property="og:type" content="website">
   <title>Shop gia dụng thông minh tiện lợi, giá rẻ</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" fetchpriority="high"
+    href="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto,w_800/v1776446439/png_1_sw7co0.png">
   <style>
     * {
       margin: 0;
@@ -61,8 +73,8 @@
 
     .slides {
       display: flex;
-      transition: .3s;
-      touch-action: pan-y;
+      transition: transform .25s ease;
+      will-change: transform;
     }
 
     .slide {
@@ -135,6 +147,8 @@
     .section {
       padding: 5px 10px;
       border-top: 1px solid #f5f5f5;
+        content-visibility:auto;
+  contain-intrinsic-size:800px;
     }
 
     /* ===== PRICE ===== */
@@ -614,6 +628,8 @@
       gap: 8px;
       margin-top: 10px;
       overflow-x: auto;
+      -webkit-overflow-scrolling:touch;
+contain:content;
     }
 
     .review-img {
@@ -725,7 +741,7 @@
 
     .modal.show {
       display: flex;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
     }
 
     .modal-content {
@@ -1146,6 +1162,7 @@
       border-radius: 12px;
       margin: 12px 0;
       display: block;
+      content-visibility:auto;
     }
 
     .product-desc .section-title {
@@ -1168,7 +1185,7 @@
       font-size: 13px;
       z-index: 9999;
 
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
     }
 
     .color-list {
@@ -1600,11 +1617,12 @@
     .sale-text {
       animation: textBlink 0.5s infinite;
     }
-    img{
-  display:block;
-  max-width:100%;
-  height:auto;
-}
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <div id="recentOrder" class="recent-order">
@@ -1671,26 +1689,30 @@
       <div class="color-list" id="capacityOptions">
 
         <div class="color-item active" data-value="Đen"
-          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
-          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/dfhhercs_s0eyeo.webp">
           <span>Đen</span>
         </div>
 
         <div class="color-item" data-value="Be"
-          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
-          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_8_lnnttw.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_8_lnnttw.webp">
           <span>Be</span>
         </div>
 
         <div class="color-item" data-value="Hồng"
-          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
-          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/3_bd85kx.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/3_bd85kx.webp">
           <span>Hồng</span>
         </div>
 
         <div class="color-item" data-value="Tím"
-          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
-          <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
+          data-img="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_excu8i.webp">
+          <img
+            src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_excu8i.webp">
           <span>Tím</span>
         </div>
 
@@ -1727,7 +1749,7 @@
         </p>
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_5_dojkv8.webp">
 
         <p class="desc-text">
           Không chỉ che nắng, chiếc mũ này còn tích hợp <b>quạt mini siêu mát</b>,
@@ -1735,7 +1757,7 @@
         </p>
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_1_na0gkz.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_1_na0gkz.webp">
 
 
         <div class="section-title">⚡ VÌ SAO AI CŨNG MUỐN SỞ HỮU?</div>
@@ -1749,7 +1771,7 @@
         </ul>
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_2_ivqecc.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_2_ivqecc.webp">
 
 
         <div class="section-title">🔥 ĐIỂM KHÁC BIỆT VƯỢT TRỘI</div>
@@ -1765,7 +1787,7 @@
         </ul>
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_3_dtkc9s.webp">
 
 
         <div class="section-title">🎯 THIẾT KẾ THÔNG MINH</div>
@@ -1776,10 +1798,10 @@
         </p>
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_4_gecq1q.webp">
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_6_l5u9yj.webp">
 
 
         <div class="section-title">📦 THÔNG TIN SẢN PHẨM</div>
@@ -1794,7 +1816,7 @@
         </ul>
 
         <img class="desc-img" loading="lazy" decoding="async" width="800" height="800"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_7_gfpfjl.webp">
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_7_gfpfjl.webp">
 
 
         <div class="section-title">🏃 PHÙ HỢP CHO</div>
@@ -1898,7 +1920,7 @@
 
       <div style="margin-bottom:16px;width: 100%;">
         <img style="width: 100%;"
-          src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776447215/nguyentuan-google_kadmy0.png" />
+          src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776447215/nguyentuan-google_kadmy0.png" />
       </div>
 
       <div style="margin-bottom:14px;">
@@ -1961,7 +1983,7 @@
             <div class="cart-item-top">
 
               <img id="cartImage"
-                src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+                src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/dfhhercs_s0eyeo.webp">
 
               <div class="cart-info">
 
@@ -1985,23 +2007,25 @@
 
               <div class="color-item active" data-value="Đen">
                 <img
-                  src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp">
+                  src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/dfhhercs_s0eyeo.webp">
                 <span>Đen</span>
               </div>
 
               <div class="color-item" data-value="Be">
                 <img
-                  src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp">
+                  src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_8_lnnttw.webp">
                 <span>Be</span>
               </div>
 
               <div class="color-item" data-value="Hồng">
-                <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp">
+                <img
+                  src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/3_bd85kx.webp">
                 <span>Hồng</span>
               </div>
 
               <div class="color-item" data-value="Tím">
-                <img src="https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp">
+                <img
+                  src="https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_excu8i.webp">
                 <span>Tím</span>
               </div>
 
@@ -2099,7 +2123,7 @@
 
   </div>
 
-  <script>
+  <script defer>
 
     /* ================= STATE ================= */
     const names = [
@@ -2142,7 +2166,7 @@
       quantity: 1,
       modalQuantity: 1,
       capacity: "Đen",
-      image: "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp",
+      image: "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/dfhhercs_s0eyeo.webp",
       currentSlide: 0
     };
     const modal = document.getElementById("orderModal");
@@ -2152,17 +2176,17 @@
     const TAX = 9000;
     let COLOR_IMAGES = {
       "Đen": [
-        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/dfhhercs_s0eyeo.webp",
+        "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/dfhhercs_s0eyeo.webp",
       ],
       "Be": [
-        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_8_lnnttw.webp",
+        "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_8_lnnttw.webp",
 
       ],
       "Hồng": [
-        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/3_bd85kx.webp"
+        "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/3_bd85kx.webp"
       ],
       "Tím": [
-        "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_excu8i.webp"
+        "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_excu8i.webp"
       ]
     };
     function buildSliderFromArray(images) {
@@ -2182,6 +2206,7 @@
           loading="${i === 0 ? 'eager' : 'lazy'}"
           decoding="async"
           fetchpriority="${i === 0 ? 'high' : 'low'}"
+          style="aspect-ratio:1/1;object-fit:cover"
         >
         `;
         slidesEl.appendChild(slide);
@@ -2216,14 +2241,14 @@
       slidesEl.children[0].querySelector("img").src = firstImg;
     }
     let IMAGES = [
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776446439/png_1_sw7co0.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_1_na0gkz.webp"
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776446439/png_1_sw7co0.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_6_l5u9yj.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_4_gecq1q.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_5_dojkv8.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_3_dtkc9s.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_1_na0gkz.webp"
     ];
     const MY_AVATARS = [
       "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto,f_auto/v1777310188/475957823_1791718101401545_4591790055981185455_n_gacpxt.jpg",
@@ -2234,36 +2259,36 @@
     ];
     // ảnh bạn gửi
     const REVIEW_IMAGES = [
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530351/png_7_myvsu2.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530351/png_ebignd.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_5_z8o6iu.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_3_bwjaka.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_6_olia1e.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_4_pudbxp.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776530350/png_2_usoanv.webp"
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530351/png_7_myvsu2.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530351/png_ebignd.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530350/png_5_z8o6iu.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530350/png_3_bwjaka.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530350/png_6_olia1e.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530350/png_4_pudbxp.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776530350/png_2_usoanv.webp"
     ];
 
     // 🔥 lấy luôn ảnh từ phần mô tả trong file của bạn
     const DESC_IMAGES = [
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_1_na0gkz.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_2_ivqecc.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp"
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_5_dojkv8.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_1_na0gkz.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_2_ivqecc.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_3_dtkc9s.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_4_gecq1q.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_6_l5u9yj.webp"
     ];
 
     // trộn ảnh
     const ALL_REVIEW_IMAGES = [...REVIEW_IMAGES, ...DESC_IMAGES];
     const VN_AVATARS = [
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776446439/png_1_sw7co0.png",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_6_l5u9yj.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_4_gecq1q.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_5_dojkv8.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_3_dtkc9s.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441503/png_wwnbm9.webp",
-      "https://res.cloudinary.com/dixjbykgy/image/upload/q_auto/f_auto/v1776441502/png_1_na0gkz.webp"
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776446439/png_1_sw7co0.png",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_6_l5u9yj.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_4_gecq1q.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_5_dojkv8.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_3_dtkc9s.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441503/png_wwnbm9.webp",
+      "https://res.cloudinary.com/dixjbykgy/image/upload/w_800,c_limit,q_auto,f_auto/v1776441502/png_1_na0gkz.webp"
     ];
     function getReviewAvatar() {
       return VN_AVATARS[Math.floor(Math.random() * VN_AVATARS.length)];
@@ -2657,7 +2682,9 @@ decoding="async" src="${img}">`).join("")}
   `).join("");
     }
     reviews.sort(() => Math.random() - 0.5);
-    renderReviews();
+    setTimeout(() => {
+      renderReviews();
+    }, 1200);
 
     window.onload = () => {
       // renderMainQty();
@@ -2893,7 +2920,9 @@ decoding="async" src="${img}">`).join("")}
     };
     document.addEventListener("DOMContentLoaded", () => {
       buildSlider();
-      renderReviews();
+      setTimeout(() => {
+        renderReviews();
+      }, 1200);
     });
     function showSuccessModal(data) {
       document.getElementById("sName").innerText = data.name;
